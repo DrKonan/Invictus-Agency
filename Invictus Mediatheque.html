@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Invictus Agency — Médiathèque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="invictus-shared.css?v=4">
+<style>
+/* Filters */
+.md-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+.md-chip{padding:10px 18px;border-radius:999px;border:1px solid var(--line-light);background:transparent;color:var(--ink);font-family:var(--body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.md-chip.active{background:var(--grad);border-color:transparent;color:#fff}
+.md-chip:hover:not(.active){background:rgba(53,39,53,.05)}
+
+/* Galleries */
+.md-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.gcard{background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line-light);transition:transform .35s ease, box-shadow .35s ease;display:flex;flex-direction:column;cursor:pointer}
+.gcard:hover{transform:translateY(-6px);box-shadow:0 40px 70px -35px rgba(53,39,53,.28)}
+.gcard .cover{position:relative;aspect-ratio:4/3;overflow:hidden}
+.gcard .cover .ph{position:absolute;inset:0;background:linear-gradient(160deg, var(--gcol,#352735),#1a121a);transition:transform .6s ease}
+.gcard:hover .cover .ph{transform:scale(1.06)}
+.gcard .cover .stripes{position:absolute;inset:0;background-image:repeating-linear-gradient(30deg, rgba(255,255,255,.05) 0 2px, transparent 2px 22px)}
+.gcard .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,.55) 100%)}
+.gcard .cover .count{position:absolute;top:18px;right:18px;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;font-family:var(--body);display:inline-flex;align-items:center;gap:6px}
+.gcard .cover .tagtype{position:absolute;bottom:16px;left:18px;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--display);font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:700}
+.gcard .body{padding:26px 26px 24px;display:flex;flex-direction:column;gap:14px;flex:1}
+.gcard h3{font-family:var(--display);font-size:20px;line-height:1.1;text-transform:uppercase;margin:0;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.gcard .client{font-family:var(--body);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.gcard .meta{display:flex;gap:14px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--line-light);margin-top:auto}
+.gcard .meta .it{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink);opacity:.7;font-family:var(--body)}
+.gcard .act{margin-top:6px}
+.btn-grad-sm{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--grad);color:#fff;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:0;cursor:pointer;box-shadow:0 10px 24px -10px rgba(215,39,196,.5);transition:transform .2s ease}
+.btn-grad-sm:hover{transform:translateY(-1px)}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(26,18,26,.94);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:40px}
+.lb.open{display:flex}
+.lb .lb-inner{position:relative;width:min(1100px,92vw);display:flex;flex-direction:column;gap:20px}
+.lb .lb-head{display:flex;justify-content:space-between;align-items:center;color:#fff;font-family:var(--body);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.lb .lb-close{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;display:grid;place-items:center;cursor:pointer}
+.lb .lb-close:hover{background:var(--grad);border-color:transparent}
+.lb .lb-stage{position:relative;aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,var(--lbcol,#352735),#1a121a)}
+.lb .lb-stage .stripes{position:absolute;inset:0;background-image:repeating-linear-gradient(-20deg, rgba(255,255,255,.04) 0 2px, transparent 2px 22px)}
+.lb .lb-stage .num{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:180px;font-weight:700;color:rgba(255,255,255,.12);letter-spacing:-.02em}
+.lb .lb-stage .cap{position:absolute;left:28px;right:28px;bottom:28px;color:#fff;font-family:var(--body);font-size:15px;line-height:1.5;padding:16px 22px;border-radius:14px;background:rgba(0,0,0,.45);backdrop-filter:blur(10px);max-width:640px}
+.lb .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;display:grid;place-items:center;cursor:pointer;z-index:3}
+.lb .lb-nav:hover{background:var(--grad);border-color:transparent}
+.lb .lb-nav.prev{left:18px}
+.lb .lb-nav.next{right:18px}
+.lb .lb-thumbs{display:flex;gap:10px;overflow-x:auto;padding:4px}
+.lb .lb-thumb{flex:0 0 96px;aspect-ratio:4/3;border-radius:10px;overflow:hidden;cursor:pointer;border:2px solid transparent;opacity:.6;transition:all .2s}
+.lb .lb-thumb.on{opacity:1;border-color:#fff}
+.lb .lb-thumb .tph{width:100%;height:100%;background:linear-gradient(160deg,var(--tcol,#352735),#1a121a)}
+
+/* Contextual CTA */
+.ctx-cta{background:var(--paper);border-top:1px solid var(--line-light);border-bottom:1px solid var(--line-light);padding:80px 24px;text-align:center}
+.ctx-cta-inner{max-width:900px;margin:0 auto}
+.ctx-cta h3{font-family:var(--display);font-size:clamp(28px,3.6vw,44px);line-height:1.1;text-transform:uppercase;margin:0 0 14px;color:var(--ink);font-weight:700;letter-spacing:-.01em}
+.ctx-cta h3 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ctx-cta p{color:var(--muted);font-size:16px;margin:0 0 26px;font-family:var(--body)}
+
+@media (max-width:1024px){
+  .md-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .md-grid{grid-template-columns:1fr}
+  .lb{padding:20px}
+}
+</style>
+</head>
+<body data-screen-label="Médiathèque">
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="invictus-shared.jsx?v=5"></script>
+<script type="text/babel" src="invictus-media.jsx?v=5"></script>
+<script src="invictus-gsap.js?v=2"></script>
+</body>
+</html>

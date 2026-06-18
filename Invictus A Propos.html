@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Invictus Agency — À Propos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="invictus-shared.css?v=4">
+<style>
+/* ------ Page-specific: À Propos ------ */
+.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:center}
+.intro-grid h2{font-family:var(--display);font-size:clamp(38px,4.8vw,64px);line-height:1.04;letter-spacing:-.02em;text-transform:uppercase;margin:18px 0 26px;color:var(--ink);font-weight:700}
+.intro-grid h2 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro-grid p{color:#52424f;font-size:17px;line-height:1.75;margin:0 0 16px;font-family:var(--body)}
+.intro-stat{position:relative;padding:56px 44px;border-radius:24px;background:#fff;border:1px solid var(--line-light);box-shadow:0 40px 80px -50px rgba(53,39,53,.25)}
+.intro-stat .big{font-family:var(--display);font-size:clamp(90px,12vw,160px);line-height:.9;letter-spacing:-.03em;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro-stat .sup{display:block;font-family:var(--body);font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.intro-stat .quote{margin-top:30px;padding-top:24px;border-top:1px solid var(--line-light);font-family:var(--body);font-style:italic;color:#52424f;font-size:16px;line-height:1.6}
+.intro-stat .sg{position:absolute;right:-30px;bottom:-20px;width:260px;opacity:.12;pointer-events:none}
+
+/* Vision */
+.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.vision-visual{position:relative;aspect-ratio:1/1.1;border-radius:26px;overflow:hidden;border:1px solid var(--line-light);background:linear-gradient(160deg,#352735 0%, #d727c4 120%)}
+.vision-visual .ph-stripe{position:absolute;inset:0;background-image:repeating-linear-gradient(-25deg, rgba(255,255,255,.06) 0 2px, transparent 2px 22px)}
+.vision-visual .ph-label{position:absolute;left:24px;top:24px;font-family:var(--body);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55);padding:8px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(0,0,0,.25);backdrop-filter:blur(10px)}
+.vision-visual .ph-seag{position:absolute;inset:0;display:grid;place-items:center;opacity:.45}
+.vision-visual .ph-seag svg{width:80%}
+.vision-visual .ph-caption{position:absolute;left:28px;right:28px;bottom:28px;color:#fff;font-family:var(--display);font-size:22px;line-height:1.1;text-transform:uppercase;font-weight:700;letter-spacing:-.01em}
+.vision-text h2{font-family:var(--display);font-size:clamp(38px,5vw,68px);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;margin:18px 0 24px;font-weight:700;color:var(--ink)}
+.vision-text h2 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vision-text p{color:#52424f;font-size:17px;line-height:1.75;font-family:var(--body)}
+.vision-text .pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+.vision-text .pillar{padding:18px 20px;border:1px solid var(--line-light);border-radius:16px;background:var(--paper)}
+.vision-text .pillar strong{font-family:var(--display);text-transform:uppercase;font-size:12px;letter-spacing:.18em;display:block;margin-bottom:6px;color:var(--ink)}
+.vision-text .pillar span{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* Valeurs */
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:20px}
+.vcard .vi{width:52px;height:52px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff;margin-bottom:22px;box-shadow:0 18px 30px -15px rgba(215,39,196,.5)}
+.vcard h3{font-family:var(--display);font-size:20px;line-height:1.15;text-transform:uppercase;margin:0 0 12px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.vcard p{font-size:14px;line-height:1.6;color:var(--muted);margin:0;font-family:var(--body)}
+.vcard .vn{font-family:var(--display);font-size:11px;letter-spacing:.3em;color:var(--muted);margin-bottom:18px;display:block}
+
+/* Equipe */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:10px}
+.tmember{position:relative}
+.tmember .portrait{aspect-ratio:3/4;border-radius:20px;overflow:hidden;position:relative;border:1px solid var(--line-light)}
+.tmember .portrait .bg{position:absolute;inset:0;background:linear-gradient(160deg,#352735,#1a121a)}
+.tmember .portrait .bg.v1{background:linear-gradient(160deg, oklch(42% 0.14 320), #1a121a)}
+.tmember .portrait .bg.v2{background:linear-gradient(160deg, oklch(46% 0.14 40), #1a121a)}
+.tmember .portrait .bg.v3{background:linear-gradient(160deg, oklch(42% 0.14 280), #1a121a)}
+.tmember .portrait .bg.v4{background:linear-gradient(160deg, oklch(44% 0.16 140), #1a121a)}
+.tmember .portrait .bg.v5{background:linear-gradient(160deg, oklch(42% 0.16 20), #1a121a)}
+.tmember .portrait .bg.v6{background:linear-gradient(160deg, oklch(44% 0.16 340), #1a121a)}
+.tmember .portrait .stripes{position:absolute;inset:0;background-image:repeating-linear-gradient(30deg, rgba(255,255,255,.05) 0 2px, transparent 2px 22px)}
+.tmember .portrait .initials{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:72px;font-weight:700;color:rgba(255,255,255,.22);letter-spacing:.05em}
+.tmember .portrait .shade{position:absolute;inset:0;background:linear-gradient(180deg, transparent 50%, rgba(0,0,0,.7) 100%)}
+.tmember .portrait .overlay{position:absolute;inset:0;background:linear-gradient(135deg, rgba(251,189,18,.8), rgba(215,39,196,.8));opacity:0;transition:opacity .35s ease;display:flex;align-items:flex-end;padding:22px;color:#fff;font-family:var(--body);font-size:13px;line-height:1.5}
+.tmember:hover .portrait .overlay{opacity:1}
+.tmember .meta{padding-top:18px}
+.tmember .meta .nm{font-family:var(--display);font-size:16px;text-transform:uppercase;letter-spacing:.02em;font-weight:700;color:var(--ink)}
+.tmember .meta .rl{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* Pôles d'expertise */
+.poles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:10px}
+.pole{position:relative;height:460px;border-radius:22px;overflow:hidden;border:1px solid var(--line-light);cursor:pointer;transition:transform .4s ease}
+.pole:hover{transform:translateY(-6px)}
+.pole .ph{position:absolute;inset:0;background:linear-gradient(160deg, var(--pcol, #352735), #1a121a);transition:transform .6s ease}
+.pole:hover .ph{transform:scale(1.06)}
+.pole .ph .stripes{position:absolute;inset:0;background-image:repeating-linear-gradient(30deg, rgba(255,255,255,.05) 0 2px, transparent 2px 22px)}
+.pole .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(53,39,53,.1) 0%, rgba(26,18,26,.95) 85%)}
+.pole .overlay-grad{position:absolute;inset:0;background:linear-gradient(160deg, rgba(251,189,18,.35), rgba(215,39,196,.45));opacity:0;transition:opacity .35s ease;mix-blend-mode:multiply}
+.pole:hover .overlay-grad{opacity:1}
+.pole .body{position:absolute;left:26px;right:26px;bottom:26px;color:#fff}
+.pole .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;margin-bottom:18px;backdrop-filter:blur(6px)}
+.pole .num{font-family:var(--display);font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.6);margin-bottom:8px}
+.pole h3{font-family:var(--display);font-size:22px;line-height:1.08;letter-spacing:-.01em;text-transform:uppercase;margin:0 0 10px;font-weight:700}
+.pole p{font-size:13px;line-height:1.55;color:rgba(255,255,255,.75);margin:0}
+
+@media (max-width:1024px){
+  .intro-grid,.vision-grid{grid-template-columns:1fr;gap:50px}
+  .values-grid,.poles-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:640px){
+  .values-grid{grid-template-columns:1fr 1fr}
+  .poles-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .vision-text .pillars{grid-template-columns:1fr}
+  .intro-stat{padding:36px 24px}
+  .pole{height:320px}
+}
+</style>
+</head>
+<body data-screen-label="À Propos">
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="invictus-shared.jsx?v=5"></script>
+<script type="text/babel" src="invictus-about.jsx?v=6"></script>
+<script src="invictus-gsap.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Invictus Agency — Nos Compétences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="invictus-shared.css?v=4">
+<style>
+/* Hero — photo BG */
+.ev-hero{min-height:78vh;position:relative;overflow:hidden}
+.ev-hero .photo-bg{position:absolute;inset:0;background:
+  radial-gradient(120% 80% at 30% 40%, rgba(215,39,196,.28), transparent 60%),
+  radial-gradient(120% 80% at 80% 60%, rgba(251,189,18,.22), transparent 60%),
+  linear-gradient(160deg, #352735 0%, #1a121a 100%)}
+.ev-hero .photo-stripes{position:absolute;inset:0;background-image:repeating-linear-gradient(-15deg, rgba(255,255,255,.04) 0 2px, transparent 2px 24px)}
+.ev-hero .photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(250,249,247,.92) 0%, rgba(250,249,247,.85) 100%)}
+.ev-hero .photo-tags{position:absolute;left:50%;top:28%;transform:translateX(-50%);display:flex;gap:16px;flex-wrap:wrap;justify-content:center;z-index:1;opacity:.45}
+.ev-hero .photo-tag{padding:8px 14px;border-radius:999px;background:rgba(53,39,53,.08);border:1px solid var(--line-light);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);font-family:var(--body)}
+
+/* Catégories */
+.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.catcard{padding:38px 30px;border-radius:22px;background:#fff;border:1px solid var(--line-light);transition:transform .35s ease, box-shadow .35s ease;position:relative;overflow:hidden}
+.catcard:hover{transform:translateY(-6px);box-shadow:0 40px 70px -35px rgba(53,39,53,.28)}
+.catcard::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.catcard:hover::before{transform:scaleX(1)}
+.catcard .ci{width:56px;height:56px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff;margin-bottom:24px;box-shadow:0 18px 30px -15px rgba(215,39,196,.5)}
+.catcard .cn{font-family:var(--display);font-size:11px;letter-spacing:.3em;color:var(--muted);margin-bottom:10px;display:block}
+.catcard h3{font-family:var(--display);font-size:22px;line-height:1.1;text-transform:uppercase;margin:0 0 14px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.catcard p{font-size:14px;line-height:1.65;color:var(--muted);margin:0 0 20px;font-family:var(--body)}
+.catcard .clist{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;padding-top:18px;border-top:1px solid var(--line-light)}
+.catcard .clist li{font-size:12px;color:var(--ink);opacity:.7;font-family:var(--body);padding-left:14px;position:relative}
+.catcard .clist li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:2px;background:var(--grad);border-radius:2px}
+
+/* Approche */
+.approach-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
+.approach-left h2{font-family:var(--display);font-size:clamp(38px,5vw,64px);line-height:1.04;letter-spacing:-.02em;text-transform:uppercase;margin:18px 0 24px;font-weight:700;color:var(--ink)}
+.approach-left h2 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.approach-left p{color:#52424f;font-size:17px;line-height:1.75;font-family:var(--body);margin:0 0 22px}
+.steps{display:flex;flex-direction:column;gap:14px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:24px;padding:26px 28px;background:#fff;border:1px solid var(--line-light);border-radius:18px;transition:transform .25s ease}
+.step:hover{transform:translateX(4px)}
+.step .sn{font-family:var(--display);font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;min-width:60px}
+.step .sc h4{font-family:var(--display);font-size:15px;letter-spacing:.05em;text-transform:uppercase;margin:0 0 6px;font-weight:700;color:var(--ink)}
+.step .sc p{margin:0;font-size:14px;line-height:1.6;color:var(--muted);font-family:var(--body)}
+
+/* Portfolio */
+.port-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.port-chip{padding:10px 16px;border-radius:999px;border:1px solid var(--line-light);background:transparent;color:var(--ink);font-family:var(--body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.port-chip.active{background:var(--grad);border-color:transparent;color:#fff}
+.port-chip:hover:not(.active){background:rgba(53,39,53,.05)}
+
+.port-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:180px;gap:18px}
+.port-tile{position:relative;border-radius:22px;overflow:hidden;cursor:pointer;border:1px solid var(--line-light);background:#fff}
+.port-tile .ph{position:absolute;inset:0;transition:transform .7s ease}
+.port-tile:hover .ph{transform:scale(1.05)}
+.port-tile .stripes{position:absolute;inset:0;background-image:repeating-linear-gradient(30deg, rgba(255,255,255,.05) 0 2px, transparent 2px 22px)}
+.port-tile .shade{position:absolute;inset:0;background:linear-gradient(180deg, transparent 50%, rgba(0,0,0,.78) 100%)}
+.port-tile .meta{position:absolute;left:22px;bottom:22px;right:22px;color:#fff}
+.port-tile .meta .t{font-family:var(--display);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.05}
+.port-tile .meta .s{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:6px}
+.port-tile .reveal{position:absolute;inset:0;opacity:0;transition:opacity .35s ease;background:linear-gradient(135deg, rgba(251,189,18,.92), rgba(215,39,196,.92));padding:26px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.port-tile:hover .reveal{opacity:1}
+.port-tile .reveal .rt{font-family:var(--display);font-size:22px;text-transform:uppercase;font-weight:700;letter-spacing:-.01em;line-height:1.05}
+.port-tile .reveal .rs{font-size:12px;letter-spacing:.22em;text-transform:uppercase;margin-top:8px;opacity:.92}
+.port-tile .reveal .ry{position:absolute;top:22px;right:22px;font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.18em}
+.port-tile .reveal .arr{position:absolute;top:22px;left:22px;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center}
+
+/* Chiffres */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.stcard{padding:36px 30px;border-radius:20px;background:#fff;border:1px solid var(--line-light);text-align:left;transition:transform .3s ease}
+.stcard:hover{transform:translateY(-4px)}
+.stcard .n{font-family:var(--display);font-size:clamp(56px,7vw,88px);line-height:.9;font-weight:700;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stcard .lbl{margin-top:18px;font-family:var(--body);font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.stcard .desc{margin-top:14px;font-size:13px;color:var(--ink);opacity:.7;line-height:1.5;font-family:var(--body)}
+
+@media (max-width:1024px){
+  .cats-grid{grid-template-columns:1fr 1fr}
+  .approach-grid{grid-template-columns:1fr;gap:50px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .cats-grid,.stats-grid{grid-template-columns:1fr}
+  .port-grid{grid-template-columns:1fr;grid-auto-rows:160px}
+  .port-tile{grid-column:1 !important;grid-row:span 1 !important}
+  .port-filter{display:none}
+}
+</style>
+</head>
+<body data-screen-label="Nos Compétences">
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="invictus-shared.jsx?v=5"></script>
+<script type="text/babel" src="invictus-events.jsx?v=8"></script>
+<script src="invictus-gsap.js?v=2"></script>
+</body>
+</html>

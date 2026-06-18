@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" fill="none">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fbbd12"></stop>
+      <stop offset="100%" stop-color="#d727c4"></stop>
+    </linearGradient>
+  </defs>
+  
+  <path d="M90 14 C 108 6, 124 4, 134 10 C 140 14, 144 18, 150 20 C 158 22, 166 20, 172 16 C 180 12, 188 12, 196 16 C 180 20, 164 26, 150 28 C 140 30, 132 28, 124 24 C 118 22, 112 22, 104 24 C 98 26, 92 22, 90 14 Z" fill="#ffffff"></path>
+  <text x="130" y="50" font-family="&#39;Bebas Neue&#39;, &#39;Lemon Milk&#39;, sans-serif" font-size="28" font-weight="700" fill="url(#lg)" text-anchor="middle" letter-spacing="2">INVICTUS</text>
+  <text x="130" y="64" font-family="&#39;Manrope&#39;, &#39;Visby CF&#39;, sans-serif" font-size="7" fill="#ffffff" text-anchor="middle" letter-spacing="6">A G E N C Y</text>
+</svg>
