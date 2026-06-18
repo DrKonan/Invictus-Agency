@@ -1,0 +1,11 @@
+{
+  "items": [
+    { "id": 1, "client": "SANIA", "title": "Dîner de gala", "year": "2025", "category": "Entreprise", "color": "oklch(42% 0.14 320)", "span": "a", "image": "" },
+    { "id": 2, "client": "Fashion Week", "title": "Défilé d'ouverture", "year": "2025", "category": "Culturel", "color": "oklch(48% 0.16 340)", "span": "b", "image": "" },
+    { "id": 3, "client": "FAO", "title": "Forum international", "year": "2024", "category": "Corporate", "color": "oklch(42% 0.12 220)", "span": "c", "image": "" },
+    { "id": 4, "client": "DIBIPHARM", "title": "Convention annuelle", "year": "2024", "category": "Corporate", "color": "oklch(44% 0.14 40)", "span": "d", "image": "" },
+    { "id": 5, "client": "SANIA", "title": "Team Building", "year": "2024", "category": "Team Building", "color": "oklch(45% 0.16 140)", "span": "e", "image": "" },
+    { "id": 6, "client": "Fondation BJKD", "title": "Caravane solidaire", "year": "2024", "category": "Communautaire", "color": "oklch(42% 0.16 20)", "span": "f", "image": "" },
+    { "id": 7, "client": "Fashion Week", "title": "After-party VIP", "year": "2025", "category": "Culturel", "color": "oklch(40% 0.14 280)", "span": "g", "image": "" }
+  ]
+}

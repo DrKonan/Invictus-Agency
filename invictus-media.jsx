@@ -1,34 +1,30 @@
 /* ---------- MÉDIATHÈQUE PAGE ---------- */
 
-const MediaHero = () => (
+const MediaHero = () => {
+  const h = window.CONTENT.page_heros.media;
+  return (
   <section className="page-hero" data-screen-label="01 Hero Médiathèque">
     <div className="hero-glow" />
     <div className="hero-grid" />
     <Seagull gradient={false} className="watermark-seag" idSuffix="-mh" />
     <div className="page-hero-inner">
-      <span className="crumb"><span className="dot" /> Archives visuelles</span>
-      <h1 style={{ fontFamily: "Unbounded", fontSize: "clamp(32px, 4.6vw, 70px)" }}>MÉDIATHÈQUE</h1>
+      <span className="crumb"><span className="dot" /> {h.crumb}</span>
+      <h1 style={{ fontFamily: "Unbounded", fontSize: "clamp(32px, 4.6vw, 70px)" }}>{h.h1}</h1>
       <p className="hero-sub" style={{ fontFamily: "Manrope" }}>
-        Revivez nos événements à travers les images. Chaque galerie raconte une soirée, un public,
-        une équipe et le travail qui se cache derrière chaque instant capturé.
+        {h.subtitle}
       </p>
     </div>
   </section>
-);
+  );
+};
 
-const galleries = [
-  { id: 1, cat: "Corporate", t: "Dîner de gala SANIA", c: "SANIA", d: "12 mars 2025", type: "Entreprise", p: 420, n: 48, col: "oklch(42% 0.14 320)" },
-  { id: 2, cat: "Institutionnel", t: "Forum FAO Abidjan", c: "FAO", d: "22 octobre 2024", type: "Institutionnel", p: 280, n: 62, col: "oklch(42% 0.12 220)" },
-  { id: 3, cat: "Culturel", t: "Fashion Week Abidjan", c: "Fashion Week", d: "05 novembre 2025", type: "Culturel", p: 680, n: 84, col: "oklch(48% 0.16 340)" },
-  { id: 4, cat: "Team Building", t: "Olympiades DIBIPHARM", c: "DIBIPHARM", d: "18 juin 2024", type: "Team Building", p: 150, n: 38, col: "oklch(45% 0.16 140)" },
-  { id: 5, cat: "Corporate", t: "Convention annuelle", c: "DIBIPHARM", d: "03 février 2025", type: "Entreprise", p: 320, n: 52, col: "oklch(44% 0.14 40)" },
-  { id: 6, cat: "Institutionnel", t: "Cérémonie BHCI", c: "BHCI", d: "09 décembre 2024", type: "Institutionnel", p: 240, n: 44, col: "oklch(40% 0.12 260)" },
-  { id: 7, cat: "Culturel", t: "Safed Festival", c: "SAFEDE", d: "28 juillet 2024", type: "Culturel", p: 1200, n: 96, col: "oklch(48% 0.16 30)" },
-  { id: 8, cat: "Team Building", t: "Retraite cohésion Activa", c: "ACTIVA", d: "15 septembre 2024", type: "Team Building", p: 85, n: 30, col: "oklch(42% 0.14 180)" },
-  { id: 9, cat: "Corporate", t: "Lancement BKD Fondation", c: "Fondation BJKD", d: "21 janvier 2024", type: "Entreprise", p: 340, n: 56, col: "oklch(42% 0.16 20)" }
-];
+const getGalleries = () => window.CONTENT.galleries.items.map(g => ({
+  id: g.id, cat: g.category, t: g.title, c: g.client, d: g.date, type: g.type,
+  p: g.attendees, n: g.photoCount, col: g.color, cover: g.cover
+}));
 
 const Galleries = ({ onOpen }) => {
+  const galleries = getGalleries();
   const [filter, setFilter] = useStateS("Tous");
   const cats = ["Tous", "Corporate", "Institutionnel", "Culturel", "Team Building"];
   const visible = filter === "Tous" ? galleries : galleries.filter((g) => g.cat === filter);
@@ -59,7 +55,7 @@ const Galleries = ({ onOpen }) => {
           {visible.map((g) => (
             <div key={g.id} className="gcard" style={{ "--gcol": g.col }} onClick={() => onOpen(g)}>
               <div className="cover">
-                <div className="ph" />
+                <div className="ph" style={g.cover ? { backgroundImage: `url(${g.cover})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined} />
                 <div className="stripes" />
                 <div className="shade" />
                 <span className="count"><Icon name="image" size={12} /> {g.n} photos</span>
@@ -161,4 +157,6 @@ const App = () => {
   );
 };
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+window.CONTENT_READY.then(() => {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+});

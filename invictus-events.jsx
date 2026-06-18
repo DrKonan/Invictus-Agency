@@ -1,6 +1,8 @@
 /* ---------- ÉVÉNEMENTS PAGE ---------- */
 
-const EventsHero = () => (
+const EventsHero = () => {
+  const h = window.CONTENT.page_heros.events;
+  return (
   <section className="page-hero ev-hero" data-screen-label="01 Hero Événements">
     <div className="photo-bg" />
     <div className="photo-stripes" />
@@ -8,13 +10,14 @@ const EventsHero = () => (
     <Seagull gradient={false} className="watermark-seag" idSuffix="-eh" />
     <div className="page-hero-inner">
 
-      <h1 style={{ fontFamily: "Unbounded", fontSize: "clamp(32px, 4.6vw, 70px)" }}>NOS COMPÉTENCES</h1>
+      <h1 style={{ fontFamily: "Unbounded", fontSize: "clamp(32px, 4.6vw, 70px)" }}>{h.h1}</h1>
       <p className="hero-sub" style={{ fontFamily: "Manrope" }}>
-        Notre Savoir-Faire, une seule promesse : des projets qui coulent de source.
+        {h.subtitle}
       </p>
     </div>
   </section>
-);
+  );
+};
 
 const categories = [
   {
@@ -123,15 +126,9 @@ const Approach = () => (
   </section>
 );
 
-const portfolio = [
-  { id: 1, c: "SANIA", t: "Dîner de gala", y: "2025", cat: "Entreprise", col: "oklch(42% 0.14 320)", span: "a" },
-  { id: 2, c: "Fashion Week", t: "Défilé d'ouverture", y: "2025", cat: "Culturel", col: "oklch(48% 0.16 340)", span: "b" },
-  { id: 3, c: "FAO", t: "Forum international", y: "2024", cat: "Corporate", col: "oklch(42% 0.12 220)", span: "c" },
-  { id: 4, c: "DIBIPHARM", t: "Convention annuelle", y: "2024", cat: "Corporate", col: "oklch(44% 0.14 40)", span: "d" },
-  { id: 5, c: "SANIA", t: "Team Building", y: "2024", cat: "Team Building", col: "oklch(45% 0.16 140)", span: "e" },
-  { id: 6, c: "Fondation BJKD", t: "Caravane solidaire", y: "2024", cat: "Communautaire", col: "oklch(42% 0.16 20)", span: "f" },
-  { id: 7, c: "Fashion Week", t: "After-party VIP", y: "2025", cat: "Culturel", col: "oklch(40% 0.14 280)", span: "g" }
-];
+const getPortfolio = () => window.CONTENT.portfolio.items.map(p => ({
+  id: p.id, c: p.client, t: p.title, y: p.year, cat: p.category, col: p.color, span: p.span, image: p.image
+}));
 
 const portStyle = {
   a: { gridColumn: "span 6", gridRow: "span 2" },
@@ -145,6 +142,7 @@ const portStyle = {
 
 const Portfolio = () => {
   const [filter, setFilter] = useStateS("Tous");
+  const portfolio = getPortfolio();
   const cats = ["Tous", "Entreprise", "Corporate", "Culturel", "Team Building", "Communautaire"];
   return (
     <section className="section on-white" data-screen-label="04 Portfolio">
@@ -171,11 +169,12 @@ const Portfolio = () => {
         <div className="port-grid">
           {portfolio.map((p) => {
             const dim = filter !== "Tous" && p.cat !== filter;
+            const phStyle = p.image
+              ? { backgroundImage: `linear-gradient(135deg, rgba(0,0,0,.25), rgba(0,0,0,.55)), url(${p.image})`, backgroundSize: "cover", backgroundPosition: "center" }
+              : { background: `radial-gradient(120% 80% at 30% 30%, rgba(255,255,255,.14), transparent 60%), linear-gradient(135deg, ${p.col}, #1a121a)` };
             return (
               <div key={p.id} className="port-tile" style={{ ...portStyle[p.span], opacity: dim ? .25 : 1, transition: "opacity .35s ease" }}>
-                <div className="ph" style={{
-                  background: `radial-gradient(120% 80% at 30% 30%, rgba(255,255,255,.14), transparent 60%), linear-gradient(135deg, ${p.col}, #1a121a)`
-                }}>
+                <div className="ph" style={phStyle}>
                   <div className="stripes" />
                 </div>
                 <div className="shade" />
@@ -287,4 +286,6 @@ const App = () => (
   </>
 );
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+window.CONTENT_READY.then(() => {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+});

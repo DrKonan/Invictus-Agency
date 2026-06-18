@@ -12,20 +12,23 @@ const STEPS = [
   { n: "09", key: "vision", lbl: "Vision" }
 ];
 
-const ContactHero = () => (
+const ContactHero = () => {
+  const h = window.CONTENT.page_heros.contact;
+  return (
   <section className="contact-hero" data-screen-label="01 Hero Contact">
     <div className="hero-glow" />
     <div className="hero-grid" />
     <Seagull gradient={false} className="watermark-seag" idSuffix="-ch" />
     <div className="contact-hero-inner">
-      <span className="crumb"><span className="dot" /> Brief événementiel · 9 étapes · ~5 min</span>
-      <h1 style={{ fontFamily: "Unbounded" }}>PRÉPAREZ VOTRE ÉVÉNEMENT AVEC NOUS</h1>
+      <span className="crumb"><span className="dot" /> {h.crumb}</span>
+      <h1 style={{ fontFamily: "Unbounded" }}>{h.h1}</h1>
       <p style={{ fontFamily: "Manrope" }}>
-        Complétez le formulaire et laissez notre équipe transformer votre vision en un événement unique.
+        {h.subtitle}
       </p>
     </div>
   </section>
-);
+  );
+};
 
 const Progress = ({ active, onJump }) => {
   const pct = ((active + 1) / STEPS.length) * 100;
@@ -69,7 +72,7 @@ const TArea = ({ label, placeholder, value, onChange, rows = 4 }) => (
 /* ---------- CALENDLY BUTTON ---------- */
 const CalendlyBtn = ({ label = "Prenez directement rendez-vous avec nous", large = false }) => (
   <a
-    href="https://calendly.com/invictusagency"
+    href={window.CONTENT.site.calendlyUrl}
     target="_blank"
     rel="noopener noreferrer"
     style={{
@@ -428,7 +431,7 @@ const ContactForm = () => {
     ];
     const subject = encodeURIComponent(`Brief événementiel — ${data.company || data.name || "Nouveau client"}`);
     const body = encodeURIComponent(lines.join("\n"));
-    window.open(`mailto:contact@invictusagency.com?subject=${subject}&body=${body}`);
+    window.open(`mailto:${window.CONTENT.contact.email}?subject=${subject}&body=${body}`);
     setSent(true);
   };
 
@@ -549,4 +552,6 @@ const App = () => (
   </>
 );
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+window.CONTENT_READY.then(() => {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+});

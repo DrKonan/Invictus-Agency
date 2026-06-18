@@ -68,7 +68,7 @@ const Seagull = ({ gradient = true, className = "", style, idSuffix = "" }) => {
 
 const RdvBtn = () => (
   <a
-    href="https://calendly.com/invictusagency"
+    href={window.CONTENT.site.calendlyUrl}
     target="_blank"
     rel="noopener noreferrer"
     className="btn-rdv"
@@ -157,20 +157,23 @@ const Nav = ({ active = "accueil" }) => {
   );
 };
 
-const Foot = () => (
+const Foot = () => {
+  const site = window.CONTENT.site;
+  const contact = window.CONTENT.contact;
+  return (
   <footer className="foot" id="contact" data-screen-label="Footer">
     <div className="foot-grid">
       <div className="foot-col foot-brand">
         <a className="logo" href="Invictus Accueil.html" style={{ color: "#fff" }}>
           <span className="logo-mark"><Seagull gradient={true} style={{ width: 28, height: 12 }} idSuffix="-foot" /></span>
-          <span className="logo-word" style={{ fontFamily: "Unbounded" }}>INVICTUS<small>AGENCY</small></span>
+          <span className="logo-word" style={{ fontFamily: "Unbounded" }}>{site.brand}<small>AGENCY</small></span>
         </a>
-        <p style={{ fontFamily: "Manrope" }}>Nous orchestrons chaque événement avec la même passion.</p>
+        <p style={{ fontFamily: "Manrope" }}>{site.footerBaseline}</p>
         <div className="foot-addr">
-          <strong>Siège — Abidjan</strong><br />
-          Cocody, Abidjan<br />
-          Côte d'Ivoire<br />
-          <strong style={{ display: "inline-block", marginTop: 10 }}>+225 07 47 50 93 60</strong>
+          <strong>{contact.addressLabel}</strong><br />
+          {contact.addressLine1}<br />
+          {contact.addressLine2}<br />
+          <strong style={{ display: "inline-block", marginTop: 10 }}>{contact.phoneDisplay}</strong>
         </div>
       </div>
       <div className="foot-col">
@@ -186,32 +189,32 @@ const Foot = () => (
       <div className="foot-col">
         <h4 style={{ fontFamily: "Unbounded" }}>Pôles de compétences</h4>
         <ul>
-          <li><a href="#" style={{ fontFamily: "Unbounded" }}>BUSINESS WELFARE</a></li>
-          <li><a href="#" style={{ fontFamily: "Unbounded" }}>ACTIONS COMMUNAUTAIRES</a></li>
-          <li><a href="#" style={{ fontFamily: "Unbounded" }}>EVENTS PLANNER</a></li>
-          <li><a href="#" style={{ fontFamily: "Unbounded" }}>MARKETING DE CONTENU</a></li>
+          {site.poles.map((p, i) => (
+            <li key={i}><a href={p.href} style={{ fontFamily: "Unbounded" }}>{p.label}</a></li>
+          ))}
         </ul>
       </div>
       <div className="foot-col">
         <h4 style={{ fontFamily: "Unbounded" }}>Contact</h4>
         <ul>
-          <li><a href="mailto:contact@invictus.agency"><Icon name="mail" size={14} /> Contact@invictus.agency</a></li>
-          <li><a href="tel:+2250747509360"><Icon name="phone" size={14} /> +225 07 47 50 93 60</a></li>
-          <li><a href="#"><Icon name="mapPin" size={14} /> Cocody, Abidjan</a></li>
+          <li><a href={`mailto:${contact.email}`}><Icon name="mail" size={14} /> {contact.email}</a></li>
+          <li><a href={`tel:${contact.phoneRaw}`}><Icon name="phone" size={14} /> {contact.phoneDisplay}</a></li>
+          <li><a href="#"><Icon name="mapPin" size={14} /> {contact.city}</a></li>
         </ul>
         <div className="social" style={{ marginTop: 24 }}>
-          <a href="#"><Icon name="instagram" size={16} /></a>
-          <a href="#"><Icon name="linkedin" size={16} /></a>
-          <a href="#"><Icon name="facebook" size={16} /></a>
-          <a href="#"><Icon name="x" size={16} /></a>
+          <a href={contact.socials.instagram}><Icon name="instagram" size={16} /></a>
+          <a href={contact.socials.linkedin}><Icon name="linkedin" size={16} /></a>
+          <a href={contact.socials.facebook}><Icon name="facebook" size={16} /></a>
+          <a href={contact.socials.x}><Icon name="x" size={16} /></a>
         </div>
       </div>
     </div>
     <div className="foot-bottom">
-      <span>© 2026 Invictus Agency. Tous droits réservés.</span>
+      <span>{site.copyright}</span>
       <span><a href="#" style={{ color: "inherit" }}>Mentions légales</a> · <a href="#" style={{ color: "inherit" }}>Confidentialité</a></span>
     </div>
   </footer>
-);
+  );
+};
 
 Object.assign(window, { Icon, Seagull, Nav, Foot, RdvBtn });

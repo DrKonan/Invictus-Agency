@@ -1,0 +1,193 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "fr"
+
+collections:
+  - name: site
+    label: "Site & contact"
+    files:
+      - name: global
+        label: "Paramètres globaux"
+        file: "content/site.json"
+        format: json
+        fields:
+          - { name: brand, label: "Marque", widget: string }
+          - { name: tagline, label: "Slogan", widget: string }
+          - { name: footerBaseline, label: "Baseline (footer)", widget: text }
+          - { name: calendlyUrl, label: "URL Calendly", widget: string }
+          - name: poles
+            label: "Pôles de compétences (footer)"
+            widget: list
+            fields:
+              - { name: label, label: "Libellé", widget: string }
+              - { name: href, label: "Lien", widget: string }
+          - { name: copyright, label: "Copyright", widget: string }
+
+      - name: contact
+        label: "Informations de contact"
+        file: "content/contact.json"
+        format: json
+        fields:
+          - { name: email, label: "E-mail", widget: string }
+          - { name: phoneDisplay, label: "Téléphone (affichage)", widget: string }
+          - { name: phoneRaw, label: "Téléphone (lien tel:)", widget: string, hint: "Sans espaces, ex: +2250747509360" }
+          - { name: addressLabel, label: "Libellé adresse", widget: string }
+          - { name: addressLine1, label: "Adresse ligne 1", widget: string }
+          - { name: addressLine2, label: "Adresse ligne 2", widget: string }
+          - { name: city, label: "Ville (affichage)", widget: string }
+          - name: socials
+            label: "Réseaux sociaux (URL ou # si non utilisé)"
+            widget: object
+            fields:
+              - { name: instagram, label: "Instagram", widget: string, required: false }
+              - { name: linkedin, label: "LinkedIn", widget: string, required: false }
+              - { name: facebook, label: "Facebook", widget: string, required: false }
+              - { name: x, label: "X (Twitter)", widget: string, required: false }
+
+      - name: page_heros
+        label: "Hero de chaque page"
+        file: "content/page-heros.json"
+        format: json
+        fields:
+          - name: home
+            label: "Accueil"
+            widget: object
+            fields:
+              - { name: h1Line1, label: "Titre ligne 1", widget: string }
+              - { name: h1Line2, label: "Titre ligne 2", widget: string }
+              - { name: subtitle, label: "Sous-titre", widget: text }
+          - name: about
+            label: "À Propos"
+            widget: object
+            fields:
+              - { name: crumb, label: "Fil d'Ariane", widget: string }
+              - { name: h1Line1, label: "Titre ligne 1", widget: string }
+              - { name: h1Line2, label: "Titre ligne 2", widget: string }
+              - { name: subtitle, label: "Sous-titre", widget: string }
+          - name: events
+            label: "Événements"
+            widget: object
+            fields:
+              - { name: h1, label: "Titre", widget: string }
+              - { name: subtitle, label: "Sous-titre", widget: text }
+          - name: media
+            label: "Médiathèque"
+            widget: object
+            fields:
+              - { name: crumb, label: "Fil d'Ariane", widget: string }
+              - { name: h1, label: "Titre", widget: string }
+              - { name: subtitle, label: "Sous-titre", widget: text }
+          - name: contact
+            label: "Contact"
+            widget: object
+            fields:
+              - { name: crumb, label: "Fil d'Ariane", widget: string }
+              - { name: h1, label: "Titre", widget: string }
+              - { name: subtitle, label: "Sous-titre", widget: text }
+
+  - name: realisations
+    label: "Réalisations (page Accueil)"
+    files:
+      - name: list
+        label: "Liste"
+        file: "content/realisations.json"
+        format: json
+        fields:
+          - name: items
+            label: "Réalisations"
+            widget: list
+            summary: "{{fields.title}} · {{fields.subtitle}}"
+            fields:
+              - { name: id, label: "ID", widget: number, value_type: int }
+              - { name: title, label: "Titre", widget: string }
+              - { name: subtitle, label: "Sous-titre", widget: string }
+              - name: category
+                label: "Catégorie"
+                widget: select
+                options: ["Corporate", "Marketing", "Culture", "Communauté"]
+              - { name: color, label: "Couleur (oklch)", widget: string, hint: "Ex: oklch(55% 0.18 320)" }
+              - name: span
+                label: "Taille tuile (a-h)"
+                widget: select
+                options: ["a", "b", "c", "d", "e", "f", "g", "h"]
+              - { name: image, label: "Image", widget: image, required: false }
+
+  - name: portfolio
+    label: "Portfolio (page Événements)"
+    files:
+      - name: list
+        label: "Liste"
+        file: "content/portfolio.json"
+        format: json
+        fields:
+          - name: items
+            label: "Items du portfolio"
+            widget: list
+            summary: "{{fields.client}} · {{fields.title}} ({{fields.year}})"
+            fields:
+              - { name: id, label: "ID", widget: number, value_type: int }
+              - { name: client, label: "Client", widget: string }
+              - { name: title, label: "Titre", widget: string }
+              - { name: year, label: "Année", widget: string }
+              - name: category
+                label: "Catégorie"
+                widget: select
+                options: ["Entreprise", "Corporate", "Culturel", "Team Building", "Communautaire"]
+              - { name: color, label: "Couleur (oklch)", widget: string }
+              - name: span
+                label: "Taille tuile (a-g)"
+                widget: select
+                options: ["a", "b", "c", "d", "e", "f", "g"]
+              - { name: image, label: "Image", widget: image, required: false }
+
+  - name: galleries
+    label: "Galeries (page Médiathèque)"
+    files:
+      - name: list
+        label: "Liste"
+        file: "content/galleries.json"
+        format: json
+        fields:
+          - name: items
+            label: "Galeries"
+            widget: list
+            summary: "{{fields.title}} · {{fields.client}}"
+            fields:
+              - { name: id, label: "ID", widget: number, value_type: int }
+              - name: category
+                label: "Catégorie (filtre)"
+                widget: select
+                options: ["Corporate", "Institutionnel", "Culturel", "Team Building"]
+              - { name: title, label: "Titre", widget: string }
+              - { name: client, label: "Client", widget: string }
+              - { name: date, label: "Date (affichage)", widget: string }
+              - name: type
+                label: "Type (badge)"
+                widget: select
+                options: ["Entreprise", "Institutionnel", "Culturel", "Team Building"]
+              - { name: photoCount, label: "Nombre de photos", widget: number, value_type: int }
+              - { name: attendees, label: "Participants", widget: number, value_type: int }
+              - { name: color, label: "Couleur (oklch)", widget: string }
+              - { name: cover, label: "Image de couverture", widget: image, required: false }
+
+  - name: team
+    label: "Équipe (page À Propos)"
+    files:
+      - name: list
+        label: "Membres"
+        file: "content/team.json"
+        format: json
+        fields:
+          - name: members
+            label: "Membres"
+            widget: list
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { name: name, label: "Nom complet", widget: string }
+              - { name: role, label: "Rôle", widget: string }
+              - { name: photo, label: "Photo", widget: image, required: false }

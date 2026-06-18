@@ -1,19 +1,22 @@
 /* ---------- À PROPOS PAGE ---------- */
 
-const AboutHero = () => (
+const AboutHero = () => {
+  const h = window.CONTENT.page_heros.about;
+  return (
   <section className="page-hero" data-screen-label="01 Hero À Propos">
     <div className="hero-glow" />
     <div className="hero-grid" />
     <Seagull gradient={false} className="watermark-seag" idSuffix="-ah" />
     <div className="page-hero-inner">
-      <span className="crumb"><span className="dot" /> Invictus Agency — Notre ADN</span>
-      <h1 style={{ fontFamily: "Unbounded", fontSize: "clamp(32px, 4.6vw, 70px)" }}>GÉNÉRATEURS<br />D'IMPACT DURABLE</h1>
+      <span className="crumb"><span className="dot" /> {h.crumb}</span>
+      <h1 style={{ fontFamily: "Unbounded", fontSize: "clamp(32px, 4.6vw, 70px)" }}>{h.h1Line1}<br />{h.h1Line2}</h1>
       <p className="hero-sub" style={{ fontFamily: "Unbounded", fontStyle: "italic", fontSize: "clamp(22px, 3.2vw, 52px)", background: "linear-gradient(to right, #fbbd12, #f47a4d, #d727c4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", lineHeight: 1.2 }}>
-        Team Work Makes Dream Work
+        {h.subtitle}
       </p>
     </div>
   </section>
-);
+  );
+};
 
 const Intro = () => (
   <section className="section on-beige" data-screen-label="02 Introduction">
@@ -132,27 +135,15 @@ const Team = () => (
         </p>
       </div>
       <div className="team-grid">
-        {[
-          { n: "Henri Joël SASSO", r: "Directeur d'Agence" },
-          { n: "Lydie YAPI", r: "RH & Administration" },
-          { n: "Cyrille NADJE", r: "Finances & Comptabilité" },
-          { n: "Slimane OUATTARA", r: "Chargé des Opérations et Moyens Généraux" },
-          { n: "Blanche KUAMÉ", r: "Assistante Administrative" },
-          { n: "FAGNIDI Honohi Grace Carolle", r: "Chef de Projet" },
-          { n: "Charles MÉDAH", r: "Chef de Projet" },
-          { n: "Oscar Ditozié KALLÉ", r: "Chef de Projet" },
-          { n: null, r: null }
-        ].map((m, i) => (
+        {window.CONTENT.team.members.map((m, i) => (
           <div key={i}>
-            <div className="tmember-photo">
-              <span>[ Photo à venir ]</span>
+            <div className="tmember-photo" style={m.photo ? { backgroundImage: `url(${m.photo})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}>
+              {!m.photo && <span>[ Photo à venir ]</span>}
             </div>
-            {m.n && (
-              <div style={{ paddingTop: 14 }}>
-                <div style={{ fontFamily: "Unbounded", fontSize: 13, letterSpacing: ".04em" }}>{m.n}</div>
-                <div style={{ fontFamily: "Manrope", fontSize: 13, marginTop: 4, opacity: .7 }}>{m.r}</div>
-              </div>
-            )}
+            <div style={{ paddingTop: 14 }}>
+              <div style={{ fontFamily: "Unbounded", fontSize: 13, letterSpacing: ".04em" }}>{m.name}</div>
+              <div style={{ fontFamily: "Manrope", fontSize: 13, marginTop: 4, opacity: .7 }}>{m.role}</div>
+            </div>
           </div>
         ))}
       </div>
@@ -230,4 +221,6 @@ const App = () => (
   </>
 );
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+window.CONTENT_READY.then(() => {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+});

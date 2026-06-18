@@ -1,0 +1,13 @@
+{
+  "brand": "INVICTUS",
+  "tagline": "Team Work Make Dream Work",
+  "footerBaseline": "Nous orchestrons chaque événement avec la même passion.",
+  "calendlyUrl": "https://calendly.com/invictusagency",
+  "poles": [
+    { "label": "BUSINESS WELFARE", "href": "Invictus Evenements.html" },
+    { "label": "ACTIONS COMMUNAUTAIRES", "href": "Invictus Evenements.html" },
+    { "label": "EVENTS PLANNER", "href": "Invictus Evenements.html" },
+    { "label": "MARKETING DE CONTENU", "href": "Invictus Evenements.html" }
+  ],
+  "copyright": "© 2026 Invictus Agency. Tous droits réservés."
+}

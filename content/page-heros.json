@@ -1,0 +1,27 @@
+{
+  "home": {
+    "h1Line1": "NOUS ORCHESTRONS VOS ÉVÉNEMENTS",
+    "h1Line2": "AVEC PASSION ET AMBITION.",
+    "subtitle": "Agence événementielle 360° basée à Abidjan. Nous concevons des expériences qui marquent les esprits et les mémoires."
+  },
+  "about": {
+    "crumb": "Invictus Agency — Notre ADN",
+    "h1Line1": "GÉNÉRATEURS",
+    "h1Line2": "D'IMPACT DURABLE",
+    "subtitle": "Team Work Makes Dream Work"
+  },
+  "events": {
+    "h1": "NOS COMPÉTENCES",
+    "subtitle": "Notre Savoir-Faire, une seule promesse : des projets qui coulent de source."
+  },
+  "media": {
+    "crumb": "Archives visuelles",
+    "h1": "MÉDIATHÈQUE",
+    "subtitle": "Revivez nos événements à travers les images. Chaque galerie raconte une soirée, un public, une équipe et le travail qui se cache derrière chaque instant capturé."
+  },
+  "contact": {
+    "crumb": "Brief événementiel · 9 étapes · ~5 min",
+    "h1": "PRÉPAREZ VOTRE ÉVÉNEMENT AVEC NOUS",
+    "subtitle": "Complétez le formulaire et laissez notre équipe transformer votre vision en un événement unique."
+  }
+}

@@ -290,7 +290,9 @@ const Nav = () => {
 };
 
 /* ---------- HERO ---------- */
-const Hero = () =>
+const Hero = () => {
+  const h = window.CONTENT.page_heros.home;
+  return (
 <section className="hero" data-screen-label="01 Hero">
     <div className="hero-bg" />
     <div className="hero-grid" />
@@ -301,11 +303,11 @@ const Hero = () =>
     </div>
     <div className="hero-inner">
       <h1 className="headline" style={{ fontSize: "clamp(32px, 4.6vw, 70px)" }}>
-        <span className="line" style={{ fontFamily: "Unbounded" }}>NOUS ORCHESTRONS VOS ÉVÉNEMENTS</span>
-        <span className="line"><em style={{ fontFamily: "Unbounded" }}>AVEC PASSION ET AMBITION.</em></span>
+        <span className="line" style={{ fontFamily: "Unbounded" }}>{h.h1Line1}</span>
+        <span className="line"><em style={{ fontFamily: "Unbounded" }}>{h.h1Line2}</em></span>
       </h1>
       <p className="hero-sub" style={{ fontFamily: "Manrope", fontSize: 18 }}>
-        Agence événementielle 360° basée à Abidjan. Nous concevons des expériences qui marquent les esprits et les mémoires.
+        {h.subtitle}
       </p>
       <div className="hero-cta">
         <a className="btn btn-brief" href="Invictus Contact.html">PARLONS DE VOTRE ÉVÉNEMENT <Icon name="arrow" size={14} stroke={2.4} /></a>
@@ -341,7 +343,9 @@ const Hero = () =>
     <div className="hero-scroll" style={{ display: "none" }}>
        <div className="bar" />
     </div>
-  </section>;
+  </section>
+  );
+};
 
 
 /* ---------- KPI ---------- */
@@ -419,15 +423,9 @@ const KPI = () => {
 };
 
 /* ---------- REALISATIONS ---------- */
-const tiles = [
-{ id: 1, t: "Dîner de Gala SANIA", s: "Corporate · 2025", cat: "Corporate", col: "oklch(55% 0.18 320)", span: "a" },
-{ id: 2, t: "Cérémonie du Personnel BHCI", s: "Corporate · 2025", cat: "Corporate", col: "oklch(50% 0.12 40)", span: "b" },
-{ id: 3, t: "Activa Kick-Off", s: "Marketing · 2024", cat: "Marketing", col: "oklch(45% 0.14 280)", span: "c" },
-{ id: 4, t: "Fondation BJKD", s: "Culture · 2024", cat: "Culture", col: "oklch(42% 0.16 20)", span: "d" },
-{ id: 5, t: "Activation Terrain Danone", s: "Marketing · 2024", cat: "Marketing", col: "oklch(50% 0.18 100)", span: "e" },
-{ id: 6, t: "SAFEDE Festival", s: "Communauté · 2023", cat: "Communauté", col: "oklch(48% 0.16 340)", span: "f" },
-{ id: 7, t: "Orange Digital Center", s: "Corporate · 2024", cat: "Corporate", col: "oklch(44% 0.16 60)", span: "g" },
-{ id: 8, t: "Gala 20 Ans SGBCI", s: "Corporate · 2023", cat: "Corporate", col: "oklch(38% 0.12 260)", span: "h" }];
+const getTiles = () => window.CONTENT.realisations.items.map(r => ({
+  id: r.id, t: r.title, s: r.subtitle, cat: r.category, col: r.color, span: r.span, image: r.image
+}));
 
 const tileStyle = {
   a: { gridColumn: "span 6", gridRow: "span 3" },
@@ -442,6 +440,7 @@ const tileStyle = {
 
 const Real = () => {
   const [filter, setFilter] = useState("Tous");
+  const tiles = getTiles();
   const cats = ["Tous", "Corporate", "Marketing", "Culture", "Communauté"];
   const visible = tiles; // filter only styles opacity
   return (
@@ -463,16 +462,19 @@ const Real = () => {
       <div className="masonry">
         {visible.map((t) => {
           const dim = filter !== "Tous" && t.cat !== filter;
-          return (
-            <div key={t.id} className="tile" style={{ ...tileStyle[t.span], opacity: dim ? .25 : 1, transition: "opacity .35s ease" }}>
-              <div className="ph" style={{
+          const phStyle = t.image
+            ? { backgroundImage: `linear-gradient(135deg, rgba(0,0,0,.2), rgba(0,0,0,.5)), url(${t.image})`, backgroundSize: "cover", backgroundPosition: "center" }
+            : {
                 background: `
                   radial-gradient(120% 80% at 30% 30%, rgba(255,255,255,.14), transparent 60%),
                   linear-gradient(135deg, ${t.col}, #1a121a)
                 `
-              }}>
+              };
+          return (
+            <div key={t.id} className="tile" style={{ ...tileStyle[t.span], opacity: dim ? .25 : 1, transition: "opacity .35s ease" }}>
+              <div className="ph" style={phStyle}>
                 {/* placeholder stripes hint for real photography */}
-                <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(-20deg, rgba(255,255,255,.04) 0 2px, transparent 2px 20px)" }} />
+                {!t.image && <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(-20deg, rgba(255,255,255,.04) 0 2px, transparent 2px 20px)" }} />}
               </div>
               <div className="shade" />
               <div className="meta">
@@ -724,7 +726,7 @@ const Testi = () => (
 /* ---------- RDV BUTTON ---------- */
 const RdvBtn = () => (
   <a
-    href="https://calendly.com/invictusagency"
+    href={window.CONTENT.site.calendlyUrl}
     target="_blank"
     rel="noopener noreferrer"
     className="btn-rdv"
@@ -766,7 +768,10 @@ const CTAWithPath = () => (
 );
 
 /* ---------- FOOTER ---------- */
-const Foot = () =>
+const Foot = () => {
+  const site = window.CONTENT.site;
+  const contact = window.CONTENT.contact;
+  return (
 <footer className="foot" id="contact" data-screen-label="07 Footer">
     <div className="cta-block">
       <CTAWithPath />
@@ -776,14 +781,14 @@ const Foot = () =>
       <div className="foot-col foot-brand">
         <a className="logo" href="#" style={{ color: "#fff" }}>
           <span className="logo-mark"><Seagull gradient={true} style={{ width: 28, height: 12 }} /></span>
-          <span className="logo-word">INVICTUS<small>AGENCY</small></span>
+          <span className="logo-word">{site.brand}<small>AGENCY</small></span>
         </a>
-        <p>Nous orchestrons chaque événement avec la même passion.</p>
+        <p>{site.footerBaseline}</p>
         <div className="foot-addr">
-          <strong>Siège — Abidjan</strong><br />
-          Cocody, Abidjan<br />
-          Côte d'Ivoire<br />
-          <strong style={{ display: "inline-block", marginTop: 10 }}>+225 07 47 50 93 60</strong>
+          <strong>{contact.addressLabel}</strong><br />
+          {contact.addressLine1}<br />
+          {contact.addressLine2}<br />
+          <strong style={{ display: "inline-block", marginTop: 10 }}>{contact.phoneDisplay}</strong>
         </div>
       </div>
       <div className="foot-col">
@@ -799,34 +804,35 @@ const Foot = () =>
       <div className="foot-col">
         <h4>Pôles de compétences</h4>
         <ul>
-          <li><a href="Invictus Evenements.html" style={{ fontFamily: "Unbounded" }}>BUSINESS WELFARE</a></li>
-          <li><a href="Invictus Evenements.html" style={{ fontFamily: "Unbounded" }}>ORGANISATION D'ÉVÉNEMENTS</a></li>
-          <li><a href="Invictus Evenements.html" style={{ fontFamily: "Unbounded" }}>MARKETING DE CONTENU</a></li>
-          <li><a href="Invictus Evenements.html" style={{ fontFamily: "Unbounded" }}>DÉVELOPPEMENT COMMUNAUTAIRE</a></li>
+          {site.poles.map((p, i) => (
+            <li key={i}><a href={p.href} style={{ fontFamily: "Unbounded" }}>{p.label}</a></li>
+          ))}
         </ul>
       </div>
       <div className="foot-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:contact@invictus.agency"><Icon name="mail" size={14} /> Contact@invictus.agency</a></li>
-          <li><a href="tel:+2250747509360"><Icon name="phone" size={14} /> +225 07 47 50 93 60</a></li>
-          <li><a href="#"><Icon name="mapPin" size={14} /> Cocody, Abidjan</a></li>
+          <li><a href={`mailto:${contact.email}`}><Icon name="mail" size={14} /> {contact.email}</a></li>
+          <li><a href={`tel:${contact.phoneRaw}`}><Icon name="phone" size={14} /> {contact.phoneDisplay}</a></li>
+          <li><a href="#"><Icon name="mapPin" size={14} /> {contact.city}</a></li>
         </ul>
         <div className="social" style={{ marginTop: 24 }}>
-          <a href="#"><Icon name="instagram" size={16} /></a>
-          <a href="#"><Icon name="linkedin" size={16} /></a>
-          <a href="#"><Icon name="facebook" size={16} /></a>
-          <a href="#"><Icon name="x" size={16} /></a>
+          <a href={contact.socials.instagram}><Icon name="instagram" size={16} /></a>
+          <a href={contact.socials.linkedin}><Icon name="linkedin" size={16} /></a>
+          <a href={contact.socials.facebook}><Icon name="facebook" size={16} /></a>
+          <a href={contact.socials.x}><Icon name="x" size={16} /></a>
         </div>
       </div>
     </div>
 
     <div className="foot-bottom">
-      <span>© 2026 Invictus Agency. Tous droits réservés.</span>
+      <span>{site.copyright}</span>
       <span style={{ display: "none", letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(255,255,255,.5)" }}>Made with ♥ in Abidjan</span>
       <span><a href="#" style={{ color: "inherit" }}>Mentions légales</a> · <a href="#" style={{ color: "inherit" }}>Confidentialité</a></span>
     </div>
-  </footer>;
+  </footer>
+  );
+};
 
 
 /* ---------- TWEAKS PANEL ---------- */
@@ -926,4 +932,6 @@ const App = () =>
   </>;
 
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+window.CONTENT_READY.then(() => {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+});

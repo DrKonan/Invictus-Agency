@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "id": 1, "title": "Dîner de Gala SANIA", "subtitle": "Corporate · 2025", "category": "Corporate", "color": "oklch(55% 0.18 320)", "span": "a", "image": "" },
+    { "id": 2, "title": "Cérémonie du Personnel BHCI", "subtitle": "Corporate · 2025", "category": "Corporate", "color": "oklch(50% 0.12 40)", "span": "b", "image": "" },
+    { "id": 3, "title": "Activa Kick-Off", "subtitle": "Marketing · 2024", "category": "Marketing", "color": "oklch(45% 0.14 280)", "span": "c", "image": "" },
+    { "id": 4, "title": "Fondation BJKD", "subtitle": "Culture · 2024", "category": "Culture", "color": "oklch(42% 0.16 20)", "span": "d", "image": "" },
+    { "id": 5, "title": "Activation Terrain Danone", "subtitle": "Marketing · 2024", "category": "Marketing", "color": "oklch(50% 0.18 100)", "span": "e", "image": "" },
+    { "id": 6, "title": "SAFEDE Festival", "subtitle": "Communauté · 2023", "category": "Communauté", "color": "oklch(48% 0.16 340)", "span": "f", "image": "" },
+    { "id": 7, "title": "Orange Digital Center", "subtitle": "Corporate · 2024", "category": "Corporate", "color": "oklch(44% 0.16 60)", "span": "g", "image": "" },
+    { "id": 8, "title": "Gala 20 Ans SGBCI", "subtitle": "Corporate · 2023", "category": "Corporate", "color": "oklch(38% 0.12 260)", "span": "h", "image": "" }
+  ]
+}
