@@ -1,7 +1,7 @@
 /* Loads all editable content JSON before React mounts.
    Each JSX file calls window.CONTENT_READY.then(() => render). */
 window.CONTENT_READY = (async () => {
-  const files = ["site", "contact", "page-heros", "realisations", "portfolio", "galleries", "team", "poles", "partners"];
+  const files = ["site", "contact", "page-heros", "realisations", "portfolio", "galleries", "team", "poles", "partners", "about"];
   const data = {};
   await Promise.all(
     files.map(async (f) => {

@@ -179,6 +179,44 @@ collections:
               - { name: color, label: "Couleur (oklch)", widget: string }
               - { name: cover, label: "Image de couverture", widget: image, required: false }
 
+  - name: about
+    label: "À Propos (images)"
+    files:
+      - name: sections
+        label: "Sections & Pôles 360"
+        file: "content/about.json"
+        format: json
+        fields:
+          - name: intro
+            label: "Section « Notre histoire » (image à droite)"
+            widget: object
+            fields:
+              - { name: image, label: "Image", widget: image, required: false }
+          - name: vision
+            label: "Section « Notre vision » (image à gauche)"
+            widget: object
+            fields:
+              - { name: image, label: "Image", widget: image, required: false }
+          - name: poles360
+            label: "Pôles d'expertise (4 cartes)"
+            widget: object
+            fields:
+              - name: items
+                label: "Pôles"
+                widget: list
+                summary: "{{fields.number}} · {{fields.title}}"
+                fields:
+                  - { name: id, label: "ID", widget: number, value_type: int }
+                  - { name: number, label: "Numéro (ex: 01)", widget: string }
+                  - { name: title, label: "Titre", widget: string }
+                  - { name: description, label: "Description", widget: text }
+                  - name: icon
+                    label: "Icône"
+                    widget: select
+                    options: ["shield", "users", "calendar", "mic", "trophy", "star", "heart", "target", "compass", "flame", "sparkle", "bulb", "eye"]
+                  - { name: color, label: "Couleur (fallback)", widget: string }
+                  - { name: image, label: "Image", widget: image, required: false }
+
   - name: poles
     label: "Pôles de compétences (page Accueil)"
     files:

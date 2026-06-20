@@ -34,21 +34,30 @@ const Intro = () => (
             Invictus Agency, c'est aussi un réseau de 16 consultants en Afrique francophone et anglophone pour donner vie à vos projets.
           </p>
         </div>
-        <div style={{ background: "#F0F0F0", borderRadius: 16, display: "grid", placeItems: "center", minHeight: 320, alignSelf: "stretch" }}>
-          <span style={{ fontFamily: "Manrope", color: "#aaa", fontSize: 14, letterSpacing: ".1em" }}>[ Photo à venir ]</span>
-        </div>
+        {(() => {
+          const img = window.CONTENT.about.intro.image;
+          return img ? (
+            <div style={{ borderRadius: 16, minHeight: 320, alignSelf: "stretch", backgroundImage: `url(${img})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+          ) : (
+            <div style={{ background: "#F0F0F0", borderRadius: 16, display: "grid", placeItems: "center", minHeight: 320, alignSelf: "stretch" }}>
+              <span style={{ fontFamily: "Manrope", color: "#aaa", fontSize: 14, letterSpacing: ".1em" }}>[ Photo à venir ]</span>
+            </div>
+          );
+        })()}
       </div>
     </div>
   </section>
 );
 
-const Vision = () => (
+const Vision = () => {
+  const visionImg = window.CONTENT.about.vision.image;
+  return (
   <section className="section on-white" data-screen-label="03 Notre Vision">
     <div className="section-inner">
       <div className="vision-grid">
-        <div className="vision-visual">
-          <div className="ph-stripe" />
-          <div className="ph-seag"><Seagull gradient={true} idSuffix="-vis" /></div>
+        <div className="vision-visual" style={visionImg ? { backgroundImage: `linear-gradient(160deg, rgba(53,39,53,.55), rgba(0,0,0,.55)), url(${visionImg})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}>
+          {!visionImg && <div className="ph-stripe" />}
+          {!visionImg && <div className="ph-seag"><Seagull gradient={true} idSuffix="-vis" /></div>}
           <span className="ph-label" style={{ fontFamily: "Manrope" }}>Vision · 2030</span>
           <div className="ph-caption" style={{ fontFamily: "Unbounded" }}>
             Être la référence<br />événementielle 360°<br />d'Afrique de l'Ouest.
@@ -86,7 +95,8 @@ const Vision = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const values = [
   { n: "01", t: "Passion & Engagement", d: "Chaque projet nous embarque entièrement. L'énergie que nous investissons devient celle que votre public ressent.", i: "flame" },
@@ -151,14 +161,13 @@ const Team = () => (
   </section>
 );
 
-const poles = [
-  { n: "01", t: "Business Welfare", d: "Bien-être, cohésion et performance collective au service de la marque employeur.", i: "shield", col: "oklch(42% 0.14 320)" },
-  { n: "02", t: "Actions Communautaires", d: "Rassemblements citoyens, projets d'impact social et de cohésion territoriale.", i: "users", col: "oklch(44% 0.16 20)" },
-  { n: "03", t: "Events Planner", d: "Galas, conventions, lancements et activations : la production sans couture.", i: "calendar", col: "oklch(42% 0.14 280)" },
-  { n: "04", t: "Marketing de Contenu", d: "Festivals, expositions et storytelling de marque pour un rayonnement durable.", i: "mic", col: "oklch(44% 0.16 140)" }
-];
+const getPoles360 = () => window.CONTENT.about.poles360.items.map(p => ({
+  n: p.number, t: p.title, d: p.description, i: p.icon, col: p.color, image: p.image
+}));
 
-const Poles = () => (
+const Poles = () => {
+  const poles = getPoles360();
+  return (
   <section className="section on-beige" data-screen-label="06 Pôles d'expertise">
     <div className="section-inner">
       <div className="section-head">
@@ -174,7 +183,9 @@ const Poles = () => (
       <div className="poles-grid">
         {poles.map((p) => (
           <div key={p.n} className="pole" style={{ "--pcol": p.col }}>
-            <div className="ph"><div className="stripes" /></div>
+            <div className="ph" style={p.image ? { backgroundImage: `url(${p.image})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}>
+              {!p.image && <div className="stripes" />}
+            </div>
             <div className="overlay" />
             <div className="overlay-grad" />
             <div className="body">
@@ -188,7 +199,8 @@ const Poles = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const CTABand = () => (
   <section className="cta-band" data-screen-label="07 CTA">

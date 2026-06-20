@@ -1,0 +1,16 @@
+{
+  "intro": {
+    "image": ""
+  },
+  "vision": {
+    "image": ""
+  },
+  "poles360": {
+    "items": [
+      { "id": 1, "number": "01", "title": "Business Welfare", "description": "Bien-être, cohésion et performance collective au service de la marque employeur.", "icon": "shield", "color": "oklch(42% 0.14 320)", "image": "" },
+      { "id": 2, "number": "02", "title": "Actions Communautaires", "description": "Rassemblements citoyens, projets d'impact social et de cohésion territoriale.", "icon": "users", "color": "oklch(44% 0.16 20)", "image": "" },
+      { "id": 3, "number": "03", "title": "Events Planner", "description": "Galas, conventions, lancements et activations : la production sans couture.", "icon": "calendar", "color": "oklch(42% 0.14 280)", "image": "" },
+      { "id": 4, "number": "04", "title": "Marketing de Contenu", "description": "Festivals, expositions et storytelling de marque pour un rayonnement durable.", "icon": "mic", "color": "oklch(44% 0.16 140)", "image": "" }
+    ]
+  }
+}
