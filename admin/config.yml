@@ -179,6 +179,47 @@ collections:
               - { name: color, label: "Couleur (oklch)", widget: string }
               - { name: cover, label: "Image de couverture", widget: image, required: false }
 
+  - name: poles
+    label: "Pôles de compétences (page Accueil)"
+    files:
+      - name: list
+        label: "Liste"
+        file: "content/poles.json"
+        format: json
+        fields:
+          - name: items
+            label: "Pôles"
+            widget: list
+            summary: "{{fields.number}} · {{fields.title}}"
+            fields:
+              - { name: id, label: "ID", widget: number, value_type: int }
+              - { name: number, label: "Numéro (ex: 01)", widget: string }
+              - { name: title, label: "Titre", widget: string }
+              - { name: description, label: "Description", widget: text }
+              - name: icon
+                label: "Icône"
+                widget: select
+                options: ["trophy", "star", "mic", "heart", "users", "calendar", "shield", "target", "compass", "flame", "sparkle", "bulb", "eye"]
+              - { name: color, label: "Couleur (fallback si pas d'image)", widget: string, hint: "Ex: oklch(42% 0.14 320)" }
+              - { name: image, label: "Image de fond", widget: image, required: false }
+
+  - name: partners
+    label: "Partenaires (page Accueil)"
+    files:
+      - name: list
+        label: "Liste"
+        file: "content/partners.json"
+        format: json
+        fields:
+          - name: items
+            label: "Partenaires"
+            widget: list
+            summary: "{{fields.name}} ({{fields.sector}})"
+            fields:
+              - { name: name, label: "Nom", widget: string }
+              - { name: sector, label: "Secteur (affiché si pas de logo)", widget: string }
+              - { name: logo, label: "Logo (si vide, on affiche le nom)", widget: image, required: false }
+
   - name: team
     label: "Équipe (page À Propos)"
     files:

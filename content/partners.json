@@ -1,0 +1,16 @@
+{
+  "items": [
+    { "name": "SANIA", "sector": "Agroalimentaire", "logo": "" },
+    { "name": "BHCI", "sector": "Banque", "logo": "" },
+    { "name": "ACTIVA", "sector": "Assurance", "logo": "" },
+    { "name": "SIB", "sector": "Banque", "logo": "" },
+    { "name": "SGBCI", "sector": "Banque", "logo": "" },
+    { "name": "UBIPHARM", "sector": "Pharma", "logo": "" },
+    { "name": "GUCE", "sector": "Guichet Unique", "logo": "" },
+    { "name": "ORANGE CI", "sector": "Télécom", "logo": "" },
+    { "name": "SUCAF", "sector": "Agroalimentaire", "logo": "" },
+    { "name": "CARGILL", "sector": "Agroalimentaire", "logo": "" },
+    { "name": "DANONE", "sector": "Agroalimentaire", "logo": "" },
+    { "name": "SYNERGIS", "sector": "Services", "logo": "" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "id": 1, "number": "01", "title": "Corporate & Institutionnel", "description": "Galas, conventions, team-buildings et lancements produits pour dirigeants et institutions exigeants.", "icon": "trophy", "color": "oklch(42% 0.14 320)", "image": "" },
+    { "id": 2, "number": "02", "title": "Marketing Opérationnel", "description": "Roadshows, activations terrain, caravanes de marque et sampling à haute conversion.", "icon": "star", "color": "oklch(48% 0.14 50)", "image": "" },
+    { "id": 3, "number": "03", "title": "Marketing de Contenu", "description": "Stratégie éditoriale, production de contenu, gestion de communauté et amplification digitale.", "icon": "mic", "color": "oklch(40% 0.14 280)", "image": "" },
+    { "id": 4, "number": "04", "title": "Sport, Culture & Animation Sociale", "description": "Marathons, tournois, festivals et grands rendez-vous culturels et athlétiques de portée régionale.", "icon": "heart", "color": "oklch(45% 0.16 140)", "image": "" },
+    { "id": 5, "number": "05", "title": "Développement Communautaire", "description": "Rassemblements citoyens, projets d'impact social et initiatives de cohésion territoriale à grande échelle.", "icon": "users", "color": "oklch(40% 0.14 20)", "image": "" },
+    { "id": 6, "number": "06", "title": "Business MICE", "description": "Meetings, incentives, conférences et expositions pour entreprises, institutions et organisations internationales.", "icon": "calendar", "color": "oklch(44% 0.16 340)", "image": "" }
+  ]
+}

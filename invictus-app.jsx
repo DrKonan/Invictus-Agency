@@ -497,17 +497,14 @@ const Real = () => {
 };
 
 /* ---------- EVENEMENTS ---------- */
-const eventTypes = [
-{ n: "01", t: "Corporate & Institutionnel", d: "Galas, conventions, team-buildings et lancements produits pour dirigeants et institutions exigeants.", i: "trophy", col: "oklch(42% 0.14 320)" },
-{ n: "02", t: "Marketing Opérationnel", d: "Roadshows, activations terrain, caravanes de marque et sampling à haute conversion.", i: "star", col: "oklch(48% 0.14 50)" },
-{ n: "03", t: "Marketing de Contenu", d: "Stratégie éditoriale, production de contenu, gestion de communauté et amplification digitale.", i: "mic", col: "oklch(40% 0.14 280)" },
-{ n: "04", t: "Sport, Culture & Animation Sociale", d: "Marathons, tournois, festivals et grands rendez-vous culturels et athlétiques de portée régionale.", i: "heart", col: "oklch(45% 0.16 140)" },
-{ n: "05", t: "Développement Communautaire", d: "Rassemblements citoyens, projets d'impact social et initiatives de cohésion territoriale à grande échelle.", i: "users", col: "oklch(40% 0.14 20)" },
-{ n: "06", t: "Business MICE", d: "Meetings, incentives, conférences et expositions pour entreprises, institutions et organisations internationales.", i: "calendar", col: "oklch(44% 0.16 340)" }];
+const getEventTypes = () => window.CONTENT.poles.items.map(p => ({
+  n: p.number, t: p.title, d: p.description, i: p.icon, col: p.color, image: p.image
+}));
 
 
 const Events = () => {
   const ref = useRef(null);
+  const eventTypes = getEventTypes();
   useEffect(() => {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
@@ -536,15 +533,19 @@ const Events = () => {
         </p>
       </div>
       <div className="evgrid" ref={ref}>
-        {eventTypes.map((e) =>
+        {eventTypes.map((e) => {
+          const phStyle = e.image
+            ? { backgroundImage: `linear-gradient(160deg, rgba(0,0,0,.45), rgba(0,0,0,.7)), url(${e.image})`, backgroundSize: "cover", backgroundPosition: "center" }
+            : {
+                background: `
+                  radial-gradient(130% 80% at 70% 20%, rgba(255,255,255,.14), transparent 60%),
+                  linear-gradient(160deg, ${e.col}, #1a121a)
+                `
+              };
+          return (
         <div key={e.n} className="evcard">
-            <div className="ph" style={{
-            background: `
-                radial-gradient(130% 80% at 70% 20%, rgba(255,255,255,.14), transparent 60%),
-                linear-gradient(160deg, ${e.col}, #1a121a)
-              `
-          }}>
-              <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(30deg, rgba(255,255,255,.03) 0 2px, transparent 2px 22px)" }} />
+            <div className="ph" style={phStyle}>
+              {!e.image && <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(30deg, rgba(255,255,255,.03) 0 2px, transparent 2px 22px)" }} />}
             </div>
             <div className="shade" />
             <div className="body">
@@ -555,29 +556,16 @@ const Events = () => {
               <div className="cta"><span className="dot" />Découvrir <Icon name="arrow" size={12} stroke={2.4} /></div>
             </div>
           </div>
-        )}
+          );
+        })}
       </div>
     </section>);
 
 };
 
 /* ---------- LOGOS ---------- */
-const brandList = [
-{ n: "SANIA", s: "Agroalimentaire" },
-{ n: "BHCI", s: "Banque" },
-{ n: "ACTIVA", s: "Assurance" },
-{ n: "SIB", s: "Banque" },
-{ n: "SGBCI", s: "Banque" },
-{ n: "UBIPHARM", s: "Pharma" },
-{ n: "GUCE", s: "Guichet Unique" },
-{ n: "ORANGE CI", s: "Télécom" },
-{ n: "SUCAF", s: "Agroalimentaire" },
-{ n: "CARGILL", s: "Agroalimentaire" },
-{ n: "DANONE", s: "Agroalimentaire" },
-{ n: "SYNERGIS", s: "Services" }];
-
-
 const Logos = () => {
+  const brandList = window.CONTENT.partners.items;
   const loop = [...brandList, ...brandList]; // double for seamless marquee
   return (
     <section className="logos" data-screen-label="05 Clients">
@@ -589,9 +577,15 @@ const Logos = () => {
       <div className="marquee">
         {loop.map((b, i) =>
         <div key={i} className="brand">
-            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--grad)", display: "inline-block" }} />
-            <span>{b.n}</span>
-            <span className="s">· {b.s}</span>
+            {b.logo ? (
+              <img src={b.logo} alt={b.name} style={{ height: 48, width: "auto", maxWidth: 160, objectFit: "contain", filter: "grayscale(1) brightness(1.4) opacity(.7)", transition: "filter .3s" }} onMouseEnter={e => e.currentTarget.style.filter = "grayscale(0) brightness(1) opacity(1)"} onMouseLeave={e => e.currentTarget.style.filter = "grayscale(1) brightness(1.4) opacity(.7)"} />
+            ) : (
+              <>
+                <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--grad)", display: "inline-block" }} />
+                <span>{b.name}</span>
+                <span className="s">· {b.sector}</span>
+              </>
+            )}
           </div>
         )}
       </div>
