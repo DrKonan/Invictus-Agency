@@ -2,6 +2,10 @@ backend:
   name: git-gateway
   branch: main
 
+# Mode local: quand l'admin tourne sur localhost, Decap utilise decap-server
+# (lance `npm run cms` dans un terminal séparé). En prod, ce flag est ignoré.
+local_backend: true
+
 media_folder: "uploads"
 public_folder: "/uploads"
 
