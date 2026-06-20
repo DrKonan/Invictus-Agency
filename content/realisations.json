@@ -2,25 +2,25 @@
   "items": [
     {
       "id": 1,
-      "title": "Dîner de Gala SANIA",
-      "subtitle": "Corporate · 2025",
+      "title": "CINQUANTENAIRE ESCA",
+      "subtitle": "Corporate · 2026",
       "category": "Corporate",
       "color": "oklch(55% 0.18 320)",
       "span": "a",
-      "image": "/uploads/dsc01444.jpg"
+      "image": "/uploads/5b9a3209.jpg"
     },
     {
       "id": 2,
-      "title": "Cérémonie du Personnel BHCI",
+      "title": "LA FASHION WEEK by ELIE KUAME",
       "subtitle": "Corporate · 2025",
       "category": "Corporate",
       "color": "oklch(50% 0.12 40)",
       "span": "b",
-      "image": ""
+      "image": "/uploads/image27.png"
     },
     {
       "id": 3,
-      "title": "Activa Kick-Off",
+      "title": "ACTIVA  ASSURANCES : COCKTAIL DINATOIRE - KICK OFF & PASSATION DE FLAMBEAU ",
       "subtitle": "Marketing · 2024",
       "category": "Marketing",
       "color": "oklch(45% 0.14 280)",
@@ -29,48 +29,75 @@
     },
     {
       "id": 4,
-      "title": "Fondation BJKD",
-      "subtitle": "Culture · 2024",
+      "title": "TOURNOI FONDATION NWKD",
+      "subtitle": "Culture · 2022",
       "category": "Culture",
       "color": "oklch(42% 0.16 20)",
       "span": "d",
-      "image": ""
+      "image": "/uploads/476613319_656321943722128_5122085585519583478_n.jpg"
     },
     {
       "id": 5,
-      "title": "Activation Terrain Danone",
-      "subtitle": "Marketing · 2024",
+      "title": "SEMINAIRE DE RENTREE SOLENNELLE DU CENTRE DES PME DE MARCORY",
+      "subtitle": "Marketing · 2026",
       "category": "Marketing",
       "color": "oklch(50% 0.18 100)",
       "span": "e",
-      "image": ""
+      "image": "/uploads/output_still_image_eab98631-3913-4079-9d59-6bc6c782bd43.jpg"
     },
     {
       "id": 6,
-      "title": "SAFEDE Festival",
-      "subtitle": "Communauté · 2023",
+      "title": "SAFED",
+      "subtitle": "Communauté · 2024",
       "category": "Communauté",
       "color": "oklch(48% 0.16 340)",
-      "span": "f",
-      "image": "/uploads/image19.png"
+      "span": "d",
+      "image": "/uploads/5b9a8411_53933187098_l.jpg"
     },
     {
       "id": 7,
-      "title": "Orange Digital Center",
-      "subtitle": "Corporate · 2024",
+      "title": "TEAM BUILDING FER ",
+      "subtitle": "Corporate · 2025",
       "category": "Corporate",
       "color": "oklch(44% 0.16 60)",
       "span": "g",
-      "image": ""
+      "image": "/uploads/dsc_2631.jpg"
     },
     {
       "id": 8,
-      "title": "Gala 20 Ans SGBCI",
+      "title": "FORUM DE LA FINANCE AQUACOLE",
       "subtitle": "Corporate · 2023",
       "category": "Corporate",
       "color": "oklch(38% 0.12 260)",
       "span": "h",
-      "image": ""
+      "image": "/uploads/whatsapp-image-2026-04-16-at-13.35.8.jpeg"
+    },
+    {
+      "id": 9,
+      "title": "TEAMBUILDING CARGILL SUPPLY CHAIN",
+      "subtitle": "Corporate · 2025",
+      "image": "/uploads/whatsapp-image-2026-02-18-at-17.05.36.jpeg",
+      "span": "h",
+      "category": "Corporate",
+      "color": "oklch(38% 0.12 260)"
+    },
+    {
+      "id": 10,
+      "title": "SEMINAIRE BILAN DES 10 ANS DU GUCE",
+      "category": "Corporate",
+      "span": "h",
+      "subtitle": "Corporate · 2025",
+      "color": "oklch(38% 0.12 260)",
+      "image": "/uploads/whatsapp-image-2026-02-11-at-11.37.41.jpeg"
+    },
+    {
+      "image": "/uploads/dsc01444.jpg",
+      "id": 11,
+      "title": "CEREMONIE DES DISTRIBUTEURS SANIA 2026",
+      "subtitle": "Corporate · 2026",
+      "category": "Corporate",
+      "color": "oklch(38% 0.12 260)",
+      "span": "h"
     }
   ]
 }
