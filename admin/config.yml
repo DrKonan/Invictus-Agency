@@ -179,14 +179,11 @@ collections:
               - { name: color, label: "Couleur (oklch)", widget: string }
               - { name: cover, label: "Image de couverture (sinon prend la 1re photo)", widget: image, required: false }
               - name: photos
-                label: "Photos de la galerie (sélection multiple possible)"
-                widget: image
-                media_library:
-                  config:
-                    multiple: true
-                allow_multiple: true
+                label: "Photos de la galerie"
+                widget: list
                 required: false
-                hint: "Maintiens Ctrl/Cmd ou Shift dans la fenêtre de sélection pour choisir plusieurs photos à la fois."
+                hint: "Cliquez sur + pour ajouter chaque photo une par une."
+                field: { name: url, label: "Photo", widget: image }
 
   - name: about
     label: "À Propos (images)"

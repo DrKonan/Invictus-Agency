@@ -19,7 +19,7 @@ const MediaHero = () => {
 };
 
 const getGalleries = () => window.CONTENT.galleries.items.map(g => {
-  const photos = (g.photos || []).filter(Boolean);
+  const photos = (g.photos || []).map(p => (p && typeof p === "object" ? p.url : p)).filter(Boolean);
   return {
     id: g.id, cat: g.category, t: g.title, c: g.client, d: g.date, type: g.type,
     p: g.attendees, n: photos.length || g.photoCount, col: g.color,
