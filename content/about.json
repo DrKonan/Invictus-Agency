@@ -1,16 +1,48 @@
 {
   "intro": {
-    "image": ""
+    "image": "/uploads/gemini_generated_image_aafn9xaafn9xaafn.png"
   },
   "vision": {
-    "image": ""
+    "image": "/uploads/gemini_generated_image_r4txr5r4txr5r4tx.png"
   },
   "poles360": {
     "items": [
-      { "id": 1, "number": "01", "title": "Business Welfare", "description": "Bien-être, cohésion et performance collective au service de la marque employeur.", "icon": "shield", "color": "oklch(42% 0.14 320)", "image": "" },
-      { "id": 2, "number": "02", "title": "Actions Communautaires", "description": "Rassemblements citoyens, projets d'impact social et de cohésion territoriale.", "icon": "users", "color": "oklch(44% 0.16 20)", "image": "" },
-      { "id": 3, "number": "03", "title": "Events Planner", "description": "Galas, conventions, lancements et activations : la production sans couture.", "icon": "calendar", "color": "oklch(42% 0.14 280)", "image": "" },
-      { "id": 4, "number": "04", "title": "Marketing de Contenu", "description": "Festivals, expositions et storytelling de marque pour un rayonnement durable.", "icon": "mic", "color": "oklch(44% 0.16 140)", "image": "" }
+      {
+        "id": 1,
+        "number": "01",
+        "title": "Business Welfare",
+        "description": "Bien-être, cohésion et performance collective au service de la marque employeur.",
+        "icon": "shield",
+        "color": "oklch(42% 0.14 320)",
+        "image": "/uploads/vue-face-sante-entreprises-crayons-injections-pilules-fond-bleu_179666-19318.jpg"
+      },
+      {
+        "id": 2,
+        "number": "02",
+        "title": "Actions Communautaires",
+        "description": "Rassemblements citoyens, projets d'impact social et de cohésion territoriale.",
+        "icon": "users",
+        "color": "oklch(44% 0.16 20)",
+        "image": "/uploads/gemini_generated_image_hlw7uohlw7uohlw7_032339~2.jpg"
+      },
+      {
+        "id": 3,
+        "number": "03",
+        "title": "Events Planner",
+        "description": "Galas, conventions, lancements et activations : la production sans couture.",
+        "icon": "calendar",
+        "color": "oklch(42% 0.14 280)",
+        "image": "/uploads/guirlandes-lumiere-jaune-pendre-tables-manger-decorees_8353-800.avif"
+      },
+      {
+        "id": 4,
+        "number": "04",
+        "title": "Marketing de Contenu",
+        "description": "Festivals, expositions et storytelling de marque pour un rayonnement durable.",
+        "icon": "mic",
+        "color": "oklch(44% 0.16 140)",
+        "image": "/uploads/gemini_generated_image_r64y0kr64y0kr64y_032401~2.jpg"
+      }
     ]
   }
 }

@@ -1,16 +1,99 @@
 {
   "items": [
-    { "name": "SANIA", "sector": "Agroalimentaire", "logo": "" },
-    { "name": "BHCI", "sector": "Banque", "logo": "" },
-    { "name": "ACTIVA", "sector": "Assurance", "logo": "" },
-    { "name": "SIB", "sector": "Banque", "logo": "" },
-    { "name": "SGBCI", "sector": "Banque", "logo": "" },
-    { "name": "UBIPHARM", "sector": "Pharma", "logo": "" },
-    { "name": "GUCE", "sector": "Guichet Unique", "logo": "" },
-    { "name": "ORANGE CI", "sector": "Télécom", "logo": "" },
-    { "name": "SUCAF", "sector": "Agroalimentaire", "logo": "" },
-    { "name": "CARGILL", "sector": "Agroalimentaire", "logo": "" },
-    { "name": "DANONE", "sector": "Agroalimentaire", "logo": "" },
-    { "name": "SYNERGIS", "sector": "Services", "logo": "" }
+    {
+      "name": "SANIA",
+      "sector": "Agroalimentaire",
+      "logo": "/uploads/whatsapp-image-2026-03-25-at-23.44.13.jpeg"
+    },
+    {
+      "name": "ACTIVA",
+      "sector": "Assurance",
+      "logo": "/uploads/image7.png"
+    },
+    {
+      "name": "BHCI",
+      "sector": "Banque",
+      "logo": "/uploads/image28.png"
+    },
+    {
+      "name": "SIB",
+      "sector": "Banque",
+      "logo": "/uploads/logo-sib-1-scaled.jpg"
+    },
+    {
+      "name": "SGBCI",
+      "sector": "Banque",
+      "logo": "/uploads/212515.jpg"
+    },
+    {
+      "name": "UBIPHARM",
+      "sector": "Pharmacie",
+      "logo": "/uploads/ubi_lo2_coteivoire_couleur_144.png"
+    },
+    {
+      "name": "GUCE",
+      "sector": "Guichet Unique du Commerce Extérieur",
+      "logo": "/uploads/logo-868c942920fa9afdf87827a8172ed7e7-1-.png"
+    },
+    {
+      "name": "MAGGI ",
+      "sector": "Agroalimentaire",
+      "logo": "/uploads/images.png"
+    },
+    {
+      "name": "SUCAF",
+      "sector": "Agroalimentaire",
+      "logo": "/uploads/f91a0386.jpg"
+    },
+    {
+      "name": "CARGILL",
+      "sector": "Agroalimentaire",
+      "logo": "/uploads/image46.jpg"
+    },
+    {
+      "name": "DANONE",
+      "sector": "Agroalimentaire",
+      "logo": "/uploads/image8.png"
+    },
+    {
+      "name": "MAYELIA  AUTOMOTIVE",
+      "sector": "Services",
+      "logo": "/uploads/mayelia-automotive.png"
+    },
+    {
+      "name": "CÔTE D'IVOIRE CABLES",
+      "sector": "Télécom",
+      "logo": "/uploads/image35.png"
+    },
+    {
+      "name": "LA FASHION WEEK by ELIE KUAME",
+      "sector": "Culure",
+      "logo": "/uploads/images-5-.png"
+    },
+    {
+      "name": "FAO",
+      "sector": "Communautaire",
+      "logo": "/uploads/image40.png"
+    },
+    {
+      "name": "FER (Fond d'Entretien Routier )",
+      "sector": "Infrastructures",
+      "logo": "/uploads/logo.png"
+    },
+    {
+      "name": "Parc des Expositions d'Abidjan",
+      "sector": "Culture",
+      "logo": "/uploads/images.jfif"
+    },
+    {
+      "name": "CIE (Compagnie d'électricité ",
+      "sector": "Infrastructures",
+      "logo": "/uploads/cie.jpg.png"
+    },
+    {
+      "name": "FONDATION BJKD",
+      "sector": "Culture",
+      "logo": "/uploads/aaaa.png"
+    }
   ]
 }
