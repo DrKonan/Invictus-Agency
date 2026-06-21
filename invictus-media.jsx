@@ -19,11 +19,11 @@ const MediaHero = () => {
 };
 
 const getGalleries = () => window.CONTENT.galleries.items.map(g => {
-  const photos = g.photos || [];
+  const photos = (g.photos || []).filter(Boolean);
   return {
     id: g.id, cat: g.category, t: g.title, c: g.client, d: g.date, type: g.type,
     p: g.attendees, n: photos.length || g.photoCount, col: g.color,
-    cover: g.cover || photos[0]?.image || "",
+    cover: g.cover || photos[0] || "",
     photos
   };
 });
@@ -107,7 +107,7 @@ const Lightbox = ({ gal, onClose }) => {
           </div>
           <button className="lb-close" onClick={onClose}><Icon name="close" size={18} stroke={2} /></button>
         </div>
-        <div className="lb-stage" style={{ "--lbcol": gal.col, ...(current ? { backgroundImage: `url(${current.image})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundColor: "#0e0a0e" } : {}) }}>
+        <div className="lb-stage" style={{ "--lbcol": gal.col, ...(current ? { backgroundImage: `url(${current})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundColor: "#0e0a0e" } : {}) }}>
           {!current && <div className="stripes" />}
           {count === 0 && (
             <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", color: "rgba(255,255,255,.55)", fontFamily: "Manrope", fontSize: 14, letterSpacing: ".1em", textTransform: "uppercase" }}>
@@ -120,13 +120,12 @@ const Lightbox = ({ gal, onClose }) => {
               <button className="lb-nav next" onClick={() => setIdx((i) => (i + 1) % count)}><Icon name="arrowRight" size={22} stroke={2} /></button>
             </>
           )}
-          {current?.caption && <div className="cap" style={{ fontFamily: "Manrope" }}>{current.caption}</div>}
         </div>
         {count > 0 && (
           <div className="lb-thumbs">
             {photos.map((p, i) => (
               <div key={i} className={`lb-thumb ${i === idx ? "on" : ""}`} onClick={() => setIdx(i)}>
-                <div className="tph" style={{ "--tcol": gal.col, backgroundImage: `url(${p.image})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+                <div className="tph" style={{ "--tcol": gal.col, backgroundImage: `url(${p})`, backgroundSize: "cover", backgroundPosition: "center" }} />
               </div>
             ))}
           </div>
