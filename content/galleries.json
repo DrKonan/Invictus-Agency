@@ -1,13 +1,13 @@
 {
   "items": [
-    { "id": 1, "category": "Corporate", "title": "Dîner de gala SANIA", "client": "SANIA", "date": "12 mars 2025", "type": "Entreprise", "photoCount": 48, "attendees": 420, "color": "oklch(42% 0.14 320)", "cover": "" },
-    { "id": 2, "category": "Institutionnel", "title": "Forum FAO Abidjan", "client": "FAO", "date": "22 octobre 2024", "type": "Institutionnel", "photoCount": 62, "attendees": 280, "color": "oklch(42% 0.12 220)", "cover": "" },
-    { "id": 3, "category": "Culturel", "title": "Fashion Week Abidjan", "client": "Fashion Week", "date": "05 novembre 2025", "type": "Culturel", "photoCount": 84, "attendees": 680, "color": "oklch(48% 0.16 340)", "cover": "" },
-    { "id": 4, "category": "Team Building", "title": "Olympiades DIBIPHARM", "client": "DIBIPHARM", "date": "18 juin 2024", "type": "Team Building", "photoCount": 38, "attendees": 150, "color": "oklch(45% 0.16 140)", "cover": "" },
-    { "id": 5, "category": "Corporate", "title": "Convention annuelle", "client": "DIBIPHARM", "date": "03 février 2025", "type": "Entreprise", "photoCount": 52, "attendees": 320, "color": "oklch(44% 0.14 40)", "cover": "" },
-    { "id": 6, "category": "Institutionnel", "title": "Cérémonie BHCI", "client": "BHCI", "date": "09 décembre 2024", "type": "Institutionnel", "photoCount": 44, "attendees": 240, "color": "oklch(40% 0.12 260)", "cover": "" },
-    { "id": 7, "category": "Culturel", "title": "Safed Festival", "client": "SAFEDE", "date": "28 juillet 2024", "type": "Culturel", "photoCount": 96, "attendees": 1200, "color": "oklch(48% 0.16 30)", "cover": "" },
-    { "id": 8, "category": "Team Building", "title": "Retraite cohésion Activa", "client": "ACTIVA", "date": "15 septembre 2024", "type": "Team Building", "photoCount": 30, "attendees": 85, "color": "oklch(42% 0.14 180)", "cover": "" },
-    { "id": 9, "category": "Corporate", "title": "Lancement BKD Fondation", "client": "Fondation BJKD", "date": "21 janvier 2024", "type": "Entreprise", "photoCount": 56, "attendees": 340, "color": "oklch(42% 0.16 20)", "cover": "" }
+    { "id": 1, "category": "Corporate", "title": "Dîner de gala SANIA", "client": "SANIA", "date": "12 mars 2025", "type": "Entreprise", "photoCount": 48, "attendees": 420, "color": "oklch(42% 0.14 320)", "cover": "", "photos": [] },
+    { "id": 2, "category": "Institutionnel", "title": "Forum FAO Abidjan", "client": "FAO", "date": "22 octobre 2024", "type": "Institutionnel", "photoCount": 62, "attendees": 280, "color": "oklch(42% 0.12 220)", "cover": "", "photos": [] },
+    { "id": 3, "category": "Culturel", "title": "Fashion Week Abidjan", "client": "Fashion Week", "date": "05 novembre 2025", "type": "Culturel", "photoCount": 84, "attendees": 680, "color": "oklch(48% 0.16 340)", "cover": "", "photos": [] },
+    { "id": 4, "category": "Team Building", "title": "Olympiades DIBIPHARM", "client": "DIBIPHARM", "date": "18 juin 2024", "type": "Team Building", "photoCount": 38, "attendees": 150, "color": "oklch(45% 0.16 140)", "cover": "", "photos": [] },
+    { "id": 5, "category": "Corporate", "title": "Convention annuelle", "client": "DIBIPHARM", "date": "03 février 2025", "type": "Entreprise", "photoCount": 52, "attendees": 320, "color": "oklch(44% 0.14 40)", "cover": "", "photos": [] },
+    { "id": 6, "category": "Institutionnel", "title": "Cérémonie BHCI", "client": "BHCI", "date": "09 décembre 2024", "type": "Institutionnel", "photoCount": 44, "attendees": 240, "color": "oklch(40% 0.12 260)", "cover": "", "photos": [] },
+    { "id": 7, "category": "Culturel", "title": "Safed Festival", "client": "SAFEDE", "date": "28 juillet 2024", "type": "Culturel", "photoCount": 96, "attendees": 1200, "color": "oklch(48% 0.16 30)", "cover": "", "photos": [] },
+    { "id": 8, "category": "Team Building", "title": "Retraite cohésion Activa", "client": "ACTIVA", "date": "15 septembre 2024", "type": "Team Building", "photoCount": 30, "attendees": 85, "color": "oklch(42% 0.14 180)", "cover": "", "photos": [] },
+    { "id": 9, "category": "Corporate", "title": "Lancement BKD Fondation", "client": "Fondation BJKD", "date": "21 janvier 2024", "type": "Entreprise", "photoCount": 56, "attendees": 340, "color": "oklch(42% 0.16 20)", "cover": "", "photos": [] }
   ]
 }

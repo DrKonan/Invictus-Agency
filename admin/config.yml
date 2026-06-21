@@ -174,10 +174,18 @@ collections:
                 label: "Type (badge)"
                 widget: select
                 options: ["Entreprise", "Institutionnel", "Culturel", "Team Building"]
-              - { name: photoCount, label: "Nombre de photos", widget: number, value_type: int }
+              - { name: photoCount, label: "Nombre approximatif (utilisé si aucune photo)", widget: number, value_type: int }
               - { name: attendees, label: "Participants", widget: number, value_type: int }
               - { name: color, label: "Couleur (oklch)", widget: string }
-              - { name: cover, label: "Image de couverture", widget: image, required: false }
+              - { name: cover, label: "Image de couverture (sinon prend la 1re photo)", widget: image, required: false }
+              - name: photos
+                label: "Photos de la galerie"
+                widget: list
+                summary: "{{fields.image}}"
+                required: false
+                fields:
+                  - { name: image, label: "Photo", widget: image }
+                  - { name: caption, label: "Légende (optionnelle)", widget: string, required: false }
 
   - name: about
     label: "À Propos (images)"

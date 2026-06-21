@@ -18,10 +18,15 @@ const MediaHero = () => {
   );
 };
 
-const getGalleries = () => window.CONTENT.galleries.items.map(g => ({
-  id: g.id, cat: g.category, t: g.title, c: g.client, d: g.date, type: g.type,
-  p: g.attendees, n: g.photoCount, col: g.color, cover: g.cover
-}));
+const getGalleries = () => window.CONTENT.galleries.items.map(g => {
+  const photos = g.photos || [];
+  return {
+    id: g.id, cat: g.category, t: g.title, c: g.client, d: g.date, type: g.type,
+    p: g.attendees, n: photos.length || g.photoCount, col: g.color,
+    cover: g.cover || photos[0]?.image || "",
+    photos
+  };
+});
 
 const Galleries = ({ onOpen }) => {
   const galleries = getGalleries();
@@ -73,52 +78,59 @@ const Galleries = ({ onOpen }) => {
   );
 };
 
-const captions = [
-  "Ouverture officielle — entrée des invités et accueil protocolaire.",
-  "Moment fort : discours du client et remise des distinctions.",
-  "Scénographie lumière : ambiance orchestrée par notre direction artistique.",
-  "Temps fort convivial — les équipes en coulisses, juste avant le lancement.",
-  "Photographie de clôture — le public, debout, applaudit la soirée."
-];
-
 const Lightbox = ({ gal, onClose }) => {
   const [idx, setIdx] = useStateS(0);
+  const photos = gal?.photos || [];
+  const count = photos.length;
   useEffectS(() => { setIdx(0); }, [gal]);
   useEffectS(() => {
-    if (!gal) return;
+    if (!gal || count === 0) return;
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") setIdx((i) => (i + 1) % 5);
-      if (e.key === "ArrowLeft") setIdx((i) => (i - 1 + 5) % 5);
+      if (e.key === "ArrowRight") setIdx((i) => (i + 1) % count);
+      if (e.key === "ArrowLeft") setIdx((i) => (i - 1 + count) % count);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [gal]);
+  }, [gal, count]);
   if (!gal) return null;
+  const current = photos[idx];
   return (
     <div className={`lb ${gal ? "open" : ""}`} onClick={onClose}>
       <div className="lb-inner" onClick={(e) => e.stopPropagation()}>
         <div className="lb-head">
           <div>
             <div style={{ fontFamily: "Unbounded", fontSize: 16, letterSpacing: ".05em", color: "#fff", marginBottom: 4 }}>{gal.t}</div>
-            <div style={{ color: "rgba(255,255,255,.65)", fontFamily: "Manrope" }}>{gal.c} · {gal.d} · {idx + 1} / 5</div>
+            <div style={{ color: "rgba(255,255,255,.65)", fontFamily: "Manrope" }}>
+              {gal.c} · {gal.d}{count > 0 && ` · ${idx + 1} / ${count}`}
+            </div>
           </div>
           <button className="lb-close" onClick={onClose}><Icon name="close" size={18} stroke={2} /></button>
         </div>
-        <div className="lb-stage" style={{ "--lbcol": gal.col }}>
-          <div className="stripes" />
-          <div className="num" style={{ fontFamily: "Unbounded" }}>{String(idx + 1).padStart(2, "0")}</div>
-          <button className="lb-nav prev" onClick={() => setIdx((i) => (i - 1 + 5) % 5)}><Icon name="arrowLeft" size={22} stroke={2} /></button>
-          <button className="lb-nav next" onClick={() => setIdx((i) => (i + 1) % 5)}><Icon name="arrowRight" size={22} stroke={2} /></button>
-          <div className="cap" style={{ fontFamily: "Manrope" }}>{captions[idx]}</div>
-        </div>
-        <div className="lb-thumbs">
-          {[0,1,2,3,4].map((i) => (
-            <div key={i} className={`lb-thumb ${i === idx ? "on" : ""}`} onClick={() => setIdx(i)}>
-              <div className="tph" style={{ "--tcol": gal.col, filter: `hue-rotate(${i * 12}deg)` }} />
+        <div className="lb-stage" style={{ "--lbcol": gal.col, ...(current ? { backgroundImage: `url(${current.image})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundColor: "#0e0a0e" } : {}) }}>
+          {!current && <div className="stripes" />}
+          {count === 0 && (
+            <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", color: "rgba(255,255,255,.55)", fontFamily: "Manrope", fontSize: 14, letterSpacing: ".1em", textTransform: "uppercase" }}>
+              Aucune photo pour l'instant
             </div>
-          ))}
+          )}
+          {count > 1 && (
+            <>
+              <button className="lb-nav prev" onClick={() => setIdx((i) => (i - 1 + count) % count)}><Icon name="arrowLeft" size={22} stroke={2} /></button>
+              <button className="lb-nav next" onClick={() => setIdx((i) => (i + 1) % count)}><Icon name="arrowRight" size={22} stroke={2} /></button>
+            </>
+          )}
+          {current?.caption && <div className="cap" style={{ fontFamily: "Manrope" }}>{current.caption}</div>}
         </div>
+        {count > 0 && (
+          <div className="lb-thumbs">
+            {photos.map((p, i) => (
+              <div key={i} className={`lb-thumb ${i === idx ? "on" : ""}`} onClick={() => setIdx(i)}>
+                <div className="tph" style={{ "--tcol": gal.col, backgroundImage: `url(${p.image})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
