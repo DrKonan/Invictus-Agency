@@ -551,7 +551,7 @@ const Logos = () => {
         {loop.map((b, i) =>
         <div key={i} className="brand">
             {b.logo ? (
-              <img src={b.logo} alt={b.name} style={{ height: 48, width: "auto", maxWidth: 160, objectFit: "contain", filter: "grayscale(1) brightness(1.4) opacity(.7)", transition: "filter .3s" }} onMouseEnter={e => e.currentTarget.style.filter = "grayscale(0) brightness(1) opacity(1)"} onMouseLeave={e => e.currentTarget.style.filter = "grayscale(1) brightness(1.4) opacity(.7)"} />
+              <img src={b.logo} alt={b.name} style={{ height: 48, width: "auto", maxWidth: 160, objectFit: "contain", opacity: .85, transition: "opacity .3s" }} onMouseEnter={e => e.currentTarget.style.opacity = "1"} onMouseLeave={e => e.currentTarget.style.opacity = ".85"} />
             ) : (
               <>
                 <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--grad)", display: "inline-block" }} />
