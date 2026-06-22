@@ -42,33 +42,33 @@
     },
     {
       "id": 5,
-      "client": "TEAM BUILDING UBIPHARM",
+      "client": "TEAM BUILDING FER",
       "title": "Team Building",
-      "year": "2024",
+      "year": "2025",
       "category": "Team Building",
       "color": "oklch(45% 0.16 140)",
       "span": "e",
-      "image": ""
+      "image": "/uploads/image74.png"
     },
     {
       "id": 6,
-      "client": "Fondation BJKD",
+      "client": "TOURNOI FONDATION BJKD & NWKD 2022",
       "title": "Caravane solidaire",
-      "year": "2024",
-      "category": "Communautaire",
+      "year": "2022",
+      "category": "Culturel",
       "color": "oklch(42% 0.16 20)",
       "span": "f",
-      "image": ""
+      "image": "/uploads/image254.png"
     },
     {
       "id": 7,
-      "client": "Fashion Week",
-      "title": "After-party VIP",
+      "client": "SÉMINAIRE BILAN DES 10 ANS DE GUCE",
+      "title": "GUCE CI",
       "year": "2025",
-      "category": "Culturel",
+      "category": "Corporate",
       "color": "oklch(40% 0.14 280)",
       "span": "g",
-      "image": ""
+      "image": "/uploads/image125.png"
     }
   ]
 }
