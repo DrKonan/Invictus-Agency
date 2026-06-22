@@ -4,6 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "npx serve . -p 8080",
-    "cms": "npx decap-server"
+    "cms": "npx decap-server",
+    "compress:all": "node scripts/compress-images.js --all",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "sharp": "^0.33.5"
   }
 }
