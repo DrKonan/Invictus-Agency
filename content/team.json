@@ -1,12 +1,44 @@
 {
   "members": [
-    { "name": "Henri Joël SASSO", "role": "Directeur d'Agence", "photo": "" },
-    { "name": "Lydie YAPI", "role": "RH & Administration", "photo": "" },
-    { "name": "Cyrille NADJE", "role": "Finances & Comptabilité", "photo": "" },
-    { "name": "Slimane OUATTARA", "role": "Chargé des Opérations et Moyens Généraux", "photo": "" },
-    { "name": "Blanche KUAMÉ", "role": "Assistante Administrative", "photo": "" },
-    { "name": "FAGNIDI Honohi Grace Carolle", "role": "Chef de Projet", "photo": "" },
-    { "name": "Charles MÉDAH", "role": "Chef de Projet", "photo": "" },
-    { "name": "Oscar Ditozié KALLÉ", "role": "Chef de Projet", "photo": "" }
+    {
+      "name": "Henri Joël SASSO",
+      "role": "Directeur d'Agence",
+      "photo": "/uploads/1777808483523~2.png"
+    },
+    {
+      "name": "Lydie YAPI",
+      "role": "RH & Administration",
+      "photo": ""
+    },
+    {
+      "name": "Cyrille NADJE",
+      "role": "Finances & Comptabilité",
+      "photo": ""
+    },
+    {
+      "name": "SANGARE ADAMA",
+      "role": "Responsable d'Agence",
+      "photo": "/uploads/gemini_generated_image_epihmkepihmkepih.png"
+    },
+    {
+      "name": "Slimane OUATTARA",
+      "role": "Chargé des Opérations et Moyens Généraux",
+      "photo": "/uploads/a29w2062.jpg"
+    },
+    {
+      "name": "Charles MÉDAH",
+      "role": "Chef de Projet",
+      "photo": "/uploads/design-sans-titre-7-.jpg.jpg"
+    },
+    {
+      "name": "Oscar Ditozié KALLÉ",
+      "role": "Responsable IT",
+      "photo": "/uploads/gemini_generated_image_1jjtbu1jjtbu1jjt_035051~2.jpg"
+    },
+    {
+      "name": "Blanche KUAME",
+      "role": "Assistante Administrative",
+      "photo": "/uploads/a29w2075.jpg"
+    }
   ]
 }
