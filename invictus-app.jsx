@@ -268,6 +268,9 @@ const Nav = () => {
 
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(false)}>
         <div className="mobile-menu-inner" onClick={e => e.stopPropagation()}>
+          <a href="Invictus Accueil.html" style={{ display: "block", marginBottom: 32 }} onClick={() => setMenuOpen(false)}>
+            <img src="/uploads/logo-invictus-png_01.png" alt="Invictus Agency" style={{ height: 48, width: "auto", margin: "0 auto", display: "block" }} />
+          </a>
           {links.map(l =>
             <a key={l.href} className={`mobile-link${l.active ? ' active' : ''}`} href={l.href} onClick={() => setMenuOpen(false)}>
               {l.label}

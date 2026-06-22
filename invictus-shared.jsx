@@ -136,6 +136,9 @@ const Nav = ({ active = "accueil" }) => {
 
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(false)}>
         <div className="mobile-menu-inner" onClick={e => e.stopPropagation()}>
+          <a href="Invictus Accueil.html" style={{ display: "block", marginBottom: 32 }} onClick={() => setMenuOpen(false)}>
+            <img src="/uploads/logo-invictus-png_01.png" alt="Invictus Agency" style={{ height: 48, width: "auto", margin: "0 auto", display: "block" }} />
+          </a>
           {links.map((l) => (
             <a key={l.id} className={`mobile-link${active === l.id ? ' active' : ''}`} href={l.href} onClick={() => setMenuOpen(false)}>
               {l.label}
@@ -159,9 +162,8 @@ const Foot = () => {
   <footer className="foot" id="contact" data-screen-label="Footer">
     <div className="foot-grid">
       <div className="foot-col foot-brand">
-        <a className="logo" href="Invictus Accueil.html" style={{ color: "#fff" }}>
-          <span className="logo-mark"><Seagull gradient={true} style={{ width: 28, height: 12 }} idSuffix="-foot" /></span>
-          <span className="logo-word" style={{ fontFamily: "Unbounded" }}>{site.brand}<small>AGENCY</small></span>
+        <a href="Invictus Accueil.html" style={{ display: "inline-block", marginBottom: 4 }}>
+          <img src="/uploads/logo-invictus-png_01.png" alt="Invictus Agency" style={{ height: 56, width: "auto", display: "block" }} />
         </a>
         <p style={{ fontFamily: "Manrope" }}>{site.footerBaseline}</p>
         <div className="foot-addr">
