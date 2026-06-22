@@ -116,12 +116,7 @@ const Nav = ({ active = "accueil" }) => {
       <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-inner">
           <a className="logo" href="Invictus Accueil.html">
-            <span className="logo-mark">
-              <Seagull gradient={true} style={{ width: 28, height: 12 }} idSuffix="-nav" />
-            </span>
-            <span className="logo-word" style={{ fontFamily: "Unbounded" }}>
-              INVICTUS<small>Team Work Make Dream Work</small>
-            </span>
+            <img src="/uploads/logo-invictus-png_01.png" alt="Invictus Agency" style={{ height: 44, width: "auto", display: "block" }} />
           </a>
           <div className="nav-links">
             {links.map((l) => (

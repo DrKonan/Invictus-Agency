@@ -247,13 +247,8 @@ const Nav = () => {
     <>
       <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-inner">
-          <a className="logo" href="#">
-            <span className="logo-mark">
-              <Seagull gradient={true} style={{ width: 28, height: 12 }} />
-            </span>
-            <span className="logo-word" style={{ fontFamily: "Unbounded" }}>
-              INVICTUS<small>Team Work Make Dream Work</small>
-            </span>
+          <a className="logo" href="Invictus Accueil.html">
+            <img src="/uploads/logo-invictus-png_01.png" alt="Invictus Agency" style={{ height: 44, width: "auto", display: "block" }} />
           </a>
           <div className="nav-links">
             {links.map(l =>
@@ -313,31 +308,6 @@ const Hero = () => {
         <a className="btn btn-brief" href="Invictus Contact.html">PARLONS DE VOTRE ÉVÉNEMENT <Icon name="arrow" size={14} stroke={2.4} /></a>
       </div>
 
-      <div className="seagull-stage">
-        <div className="seagull-halo" />
-        <div className="seagull-wrap">
-          <Seagull className="seagull" />
-        </div>
-
-        <div className="float-card fc-1" style={{ fontFamily: "Unbounded" }}>
-          <div className="k grad-text" style={{ fontFamily: "Unbounded" }}>+80</div>
-          <div className="l" style={{ fontFamily: "Unbounded" }}>ÉVÉNEMENTS ORGANISÉS</div>
-        </div>
-        <div className="float-card fc-2">
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div className="ico"><Icon name="star" size={16} stroke={2} /></div>
-            <div style={{ fontFamily: "Unbounded" }}>
-              <div className="k">+80</div>
-              <div className="l" style={{ fontFamily: "Unbounded" }}>ENTREPRISES QUI NOUS ONT FAIT CONFIANCE</div>
-            </div>
-          </div>
-        </div>
-        <div className="float-card fc-3" style={{ display: "none" }} />
-        <div className="float-card fc-4">
-          <div className="k grad-text">+100k</div>
-          <div className="l">FOLLOWERS & INTERACTIONS SUR LES RÉSEAUX SOCIAUX</div>
-        </div>
-      </div>
     </div>
 
     <div className="hero-scroll" style={{ display: "none" }}>
