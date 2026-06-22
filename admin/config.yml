@@ -184,6 +184,7 @@ collections:
                 required: false
                 hint: "Cliquez + pour ajouter chaque photo via le sélecteur."
                 field:
+                  name: image
                   widget: image
                   label: "Photo"
 
