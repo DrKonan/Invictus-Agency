@@ -180,10 +180,12 @@ collections:
               - { name: cover, label: "Image de couverture (sinon prend la 1re photo)", widget: image, required: false }
               - name: photos
                 label: "Photos de la galerie"
-                widget: image
-                allow_multiple: true
+                widget: list
                 required: false
-                hint: "Maintiens Ctrl/Cmd pour sélectionner plusieurs photos."
+                hint: "Cliquez + pour ajouter chaque photo via le sélecteur."
+                field:
+                  widget: image
+                  label: "Photo"
 
   - name: about
     label: "À Propos (images)"
