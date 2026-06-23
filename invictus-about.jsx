@@ -223,11 +223,11 @@ const App = () => (
   <>
     <Nav active="about" />
     <AboutHero />
-    <Intro />
-    <Vision />
-    <Values />
-    <Team />
     <Poles />
+    <Values />
+    <Vision />
+    <Intro />
+    <Team />
     <CTABand />
     <Foot />
   </>
